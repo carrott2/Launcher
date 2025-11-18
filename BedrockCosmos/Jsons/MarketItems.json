@@ -1,0 +1,18 @@
+[
+  {
+    "uuid": "f2f9ca6c-13c5-4a96-b8b1-64bd5371b4b0",
+    "response": "Persona\\Birthday_cape.json"
+  },
+  {
+    "uuid": "91b8c70a-50cd-4b48-a0fa-ddbf160d2045",
+    "response": "Persona\\MillionthSale_cape.json"
+  },
+  {
+    "uuid": "e847fc66-b988-4065-bdc9-fa8fd17457b2",
+    "response": "Persona\\Minecon2011_cape.json"
+  },
+  {
+    "uuid": "6d520e39-e9d3-4d89-9b5c-01a2ebfd527b",
+    "response": "Persona\\Minecon2012_cape.json"
+  }
+]
