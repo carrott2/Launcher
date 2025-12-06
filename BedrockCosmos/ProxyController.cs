@@ -1,5 +1,6 @@
 ﻿using BedrockCosmos;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -331,7 +332,7 @@ namespace Titanium.Web.Proxy.Examples.Basic
             var ext = Path.GetExtension(e.HttpClient.Request.RequestUri.AbsolutePath);
 
             Endpoint urlData = JsonData.MainPages.FirstOrDefault(o => o.url == e.HttpClient.Request.RequestUri.AbsoluteUri);
-            string body = e.UserData as string;
+            string requestBody = e.UserData as string;
 
             if (e.HttpClient.Request.Method.Equals("POST", StringComparison.OrdinalIgnoreCase) &&
             urlData != null)
@@ -343,7 +344,7 @@ namespace Titanium.Web.Proxy.Examples.Basic
                     // Search for UUID if a PlayFab Get Item endpoint and use as response
                     if (e.HttpClient.Request.RequestUri.AbsoluteUri == "https://20ca2.playfabapi.com/Catalog/GetPublishedItem")
                     {
-                        PlayfabGetPublishedItemBody getItemBody = JsonConvert.DeserializeObject<PlayfabGetPublishedItemBody>(body);
+                        PlayfabGetPublishedItemBody getItemBody = JsonConvert.DeserializeObject<PlayfabGetPublishedItemBody>(requestBody);
                         MarketItem mItem = JsonData.MarketItems.FirstOrDefault(o => o.uuid == getItemBody.itemid);
                         if (mItem != null)
                         {
@@ -352,9 +353,35 @@ namespace Titanium.Web.Proxy.Examples.Basic
                         }
                     }
 
+                    // Append custom marketplace button to response if accessing the main page
+                    if (e.HttpClient.Request.RequestUri.AbsoluteUri == "https://store.mktpl.minecraft-services.net/api/v1.0/layout/pages/MultiItemPage_StoreRoot")
+                    {
+                        if (File.Exists(localPath))
+                        {
+                            string jsonContent = File.ReadAllText(localPath);
+                            string responseBody = await e.GetResponseBodyAsString();
+
+                            JObject responseObject = JObject.Parse(responseBody);
+                            JObject appendObject = JObject.Parse(jsonContent);
+
+                            JArray rowsArray = (JArray)responseObject["result"]["rows"];
+
+                            if (rowsArray != null)
+                                rowsArray.Insert(0, appendObject);
+                            string updatedJson = responseObject.ToString();
+                            e.SetResponseBodyString(updatedJson);
+                            Console.WriteLine($"[+] Appended Json for {e.HttpClient.Request.Url}");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"[-] File not found: {localPath}");
+                        }
+                    }
+
                     if ((e.HttpClient.Request.RequestUri.AbsoluteUri == "https://20ca2.playfabapi.com/Catalog/GetPublishedItem" &&
-                        localPath != currentPathForResponse + "ProcessedInMarketItemsJson")
-                        || e.HttpClient.Request.RequestUri.AbsoluteUri != "https://20ca2.playfabapi.com/Catalog/GetPublishedItem")
+                        localPath != currentPathForResponse + "ProcessedInMarketItemsJson") ||
+                        (e.HttpClient.Request.RequestUri.AbsoluteUri != "https://store.mktpl.minecraft-services.net/api/v1.0/layout/pages/MultiItemPage_StoreRoot" &&
+                        e.HttpClient.Request.RequestUri.AbsoluteUri != "https://20ca2.playfabapi.com/Catalog/GetPublishedItem"))
                     {
                         if (File.Exists(localPath))
                         {

@@ -37,12 +37,14 @@
             this.HomePage = new System.Windows.Forms.TabPage();
             this.SettingsPage = new System.Windows.Forms.TabPage();
             this.TopPanel = new System.Windows.Forms.Panel();
-            this.CloseButton = new System.Windows.Forms.Button();
-            this.MinimizeButton = new System.Windows.Forms.Button();
+            this.AppIcon = new System.Windows.Forms.PictureBox();
             this.TopLabel = new System.Windows.Forms.Label();
+            this.MinimizeButton = new System.Windows.Forms.Button();
+            this.CloseButton = new System.Windows.Forms.Button();
             this.TabControl.SuspendLayout();
             this.HomePage.SuspendLayout();
             this.TopPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AppIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // StartButtonOld
@@ -122,6 +124,7 @@
             // TopPanel
             // 
             this.TopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.TopPanel.Controls.Add(this.AppIcon);
             this.TopPanel.Controls.Add(this.TopLabel);
             this.TopPanel.Controls.Add(this.MinimizeButton);
             this.TopPanel.Controls.Add(this.CloseButton);
@@ -133,22 +136,32 @@
             this.TopPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseMove);
             this.TopPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseUp);
             // 
-            // CloseButton
+            // AppIcon
             // 
-            this.CloseButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.CloseButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CloseButton.BackgroundImage")));
-            this.CloseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.CloseButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.CloseButton.FlatAppearance.BorderSize = 0;
-            this.CloseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.CloseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseButton.Location = new System.Drawing.Point(769, 7);
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(25, 25);
-            this.CloseButton.TabIndex = 0;
-            this.CloseButton.UseVisualStyleBackColor = true;
-            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+            this.AppIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AppIcon.BackgroundImage")));
+            this.AppIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.AppIcon.Location = new System.Drawing.Point(8, 5);
+            this.AppIcon.Name = "AppIcon";
+            this.AppIcon.Size = new System.Drawing.Size(30, 30);
+            this.AppIcon.TabIndex = 3;
+            this.AppIcon.TabStop = false;
+            this.AppIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
+            this.AppIcon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseMove);
+            this.AppIcon.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseUp);
+            // 
+            // TopLabel
+            // 
+            this.TopLabel.AutoSize = true;
+            this.TopLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TopLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.TopLabel.Location = new System.Drawing.Point(42, 8);
+            this.TopLabel.Name = "TopLabel";
+            this.TopLabel.Size = new System.Drawing.Size(126, 21);
+            this.TopLabel.TabIndex = 2;
+            this.TopLabel.Text = "Bedrock Cosmos";
+            this.TopLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
+            this.TopLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseMove);
+            this.TopLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseUp);
             // 
             // MinimizeButton
             // 
@@ -167,19 +180,22 @@
             this.MinimizeButton.UseVisualStyleBackColor = true;
             this.MinimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
             // 
-            // TopLabel
+            // CloseButton
             // 
-            this.TopLabel.AutoSize = true;
-            this.TopLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TopLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.TopLabel.Location = new System.Drawing.Point(6, 9);
-            this.TopLabel.Name = "TopLabel";
-            this.TopLabel.Size = new System.Drawing.Size(126, 21);
-            this.TopLabel.TabIndex = 2;
-            this.TopLabel.Text = "Bedrock Cosmos";
-            this.TopLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
-            this.TopLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseMove);
-            this.TopLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseUp);
+            this.CloseButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CloseButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CloseButton.BackgroundImage")));
+            this.CloseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.CloseButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.CloseButton.FlatAppearance.BorderSize = 0;
+            this.CloseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.CloseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseButton.Location = new System.Drawing.Point(769, 7);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(25, 25);
+            this.CloseButton.TabIndex = 0;
+            this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // BedrockCosmos
             // 
@@ -190,6 +206,7 @@
             this.Controls.Add(this.TopPanel);
             this.Controls.Add(this.TabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BedrockCosmos";
             this.Text = "Bedrock Cosmos";
             this.TabControl.ResumeLayout(false);
@@ -197,6 +214,7 @@
             this.HomePage.PerformLayout();
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AppIcon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -214,6 +232,7 @@
         private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.Button MinimizeButton;
         private System.Windows.Forms.Label TopLabel;
+        private System.Windows.Forms.PictureBox AppIcon;
     }
 }
 
