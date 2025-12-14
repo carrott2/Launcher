@@ -22,5 +22,9 @@ namespace BedrockCosmos
         public static List<MarketItem> MarketItems =
             JsonConvert.DeserializeObject<List<MarketItem>>
             (File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"\Jsons\MarketItems.json"));
+
+        public static List<MarketItem> PackSearchIds =
+            JsonConvert.DeserializeObject<List<MarketItem>>
+            (File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"\Jsons\PackSearch.json"));
     }
 }

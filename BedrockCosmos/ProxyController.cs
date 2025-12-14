@@ -302,9 +302,9 @@ namespace Titanium.Web.Proxy.Examples.Basic
                     e.HttpClient.Response.StatusCode = 200; // Set to OK, otherwise stays at a not found error
                     string localPath = currentPathForResponse + urlData.response;
 
-                    // Search for UUID if a PlayFab Get Item endpoint and use as response
                     if (currentUri == "https://20ca2.playfabapi.com/Catalog/GetPublishedItem")
                     {
+                        // Search for UUID if a PlayFab Get Item endpoint and use as response
                         PlayfabGetPublishedItemBody getItemBody = JsonConvert.DeserializeObject<PlayfabGetPublishedItemBody>(requestBody);
                         MarketItem mItem = JsonData.MarketItems.FirstOrDefault(o => o.uuid == getItemBody.itemid);
                         if (mItem != null)
@@ -313,7 +313,23 @@ namespace Titanium.Web.Proxy.Examples.Basic
                             //Console.WriteLine("Local path is now " + localPath);
 
                             string jsonContent = parser.ReadJsonFileContent(localPath);
-                            e.SetResponseBodyString(jsonContent); // Replace response with local json
+                            e.SetResponseBodyString(jsonContent);
+                            Console.WriteLine($"[+] Replaced response for {e.HttpClient.Request.Url}");
+                        }
+                    }
+                    else if (currentUri == "https://20ca2.playfabapi.com/Catalog/Search")
+                    {
+                        // Search for UUID if a PlayFab Search Item endpoint and use as response
+                        PlayfabGetSearchedItemBody getSearchBody = JsonConvert.DeserializeObject<PlayfabGetSearchedItemBody>(requestBody);
+                        string searchUuid = parser.ExtractPlayfabSearchId(getSearchBody.filter);
+                        MarketItem mItem = JsonData.PackSearchIds.FirstOrDefault(o => o.uuid == searchUuid);
+                        if (mItem != null)
+                        {
+                            localPath = currentPathForResponse + mItem.response;
+                            //Console.WriteLine("Local path is now " + localPath);
+
+                            string jsonContent = parser.ReadJsonFileContent(localPath);
+                            e.SetResponseBodyString(jsonContent);
                             Console.WriteLine($"[+] Replaced response for {e.HttpClient.Request.Url}");
                         }
                     }
@@ -329,7 +345,7 @@ namespace Titanium.Web.Proxy.Examples.Basic
                     else
                     {
                         string jsonContent = parser.ReadJsonFileContent(localPath);
-                        e.SetResponseBodyString(jsonContent); // Replace response with local json
+                        e.SetResponseBodyString(jsonContent);
                         Console.WriteLine($"[+] Replaced response for {e.HttpClient.Request.Url}");
                     }
                 }

@@ -23,4 +23,13 @@ namespace BedrockCosmos
         public string etag { get; set; }
         public string itemid { get; set; }
     }
+
+    public class PlayfabGetSearchedItemBody
+    {
+        public bool count { get; set; }
+        public string filter { get; set; }
+        public string orderBy { get; set; }
+        public string scid { get; set; }
+        public int top { get; set; }
+    }
 }

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace BedrockCosmos
 {
@@ -101,6 +102,19 @@ namespace BedrockCosmos
                 Console.WriteLine($"[!] File not found: {jsonToAppendPath}");
                 return string.Empty;
             }
+        }
+
+        public string ExtractPlayfabSearchId(string originalPlayfabData)
+        {
+            // UUID Pattern
+            string pattern = @"\b[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}\b";
+            Regex regex = new Regex(pattern, RegexOptions.IgnoreCase);
+            Match match = regex.Match(originalPlayfabData);
+
+            if (match.Success)
+                return match.Value;
+            else
+                return string.Empty;
         }
     }
 }

@@ -178,5 +178,17 @@
   {
     "uuid": "791e2aaf-62a5-4647-8ff7-478fab1177f7",
     "response": "Persona\\Valentine.json"
+  },
+  {
+    "uuid": "2f60a7a0-8010-49b1-8b57-851ac41f34cf",
+    "response": "SkinPacks\\Responses\\SkinPack4Binary.json"
+  },
+  {
+    "uuid": "80c85890-dad7-4d3a-b2ef-60071327b7cf",
+    "response": "SkinPacks\\Responses\\SkinPack5Binary.json"
+  },
+  {
+    "uuid": "4c61b1f5-2bbc-492f-8a2a-1f3b813c4113",
+    "response": "SkinPacks\\Responses\\SkinPack6Binary.json"
   }
 ]
