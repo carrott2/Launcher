@@ -41,7 +41,7 @@
   },
   {
     "url": "https://store.mktpl.minecraft-services.net/api/v1.0/layout/pages/MultiItemPage_PersonaSkinSelector%7cSkinPack_62c68fd4-3075-40ed-8b7b-15dcc7b667ff",
-    "response": "SkinPacks\\Responses\\Festive.json"
+    "response": "SkinPacks\\Responses\\FestiveViewer.json"
   },
   {
     "url": "https://store.mktpl.minecraft-services.net/api/v1.0/layout/pages/productId/2f60a7a0-8010-49b1-8b57-851ac41f34cf",
@@ -83,4 +83,5 @@
     "url": "https://store.mktpl.minecraft-services.net/api/v1.0/layout/pages/MultiItemPage_BionicBen_Marketplace",
     "response": "MainPages\\CosmosMarketplaceCreators\\BionicBen_Marketplace.json"
   }
+
 ]
