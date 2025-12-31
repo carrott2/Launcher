@@ -228,6 +228,10 @@
     "response": "SkinPacks\\Responses\\FestiveBinary.json"
   },
   {
+    "uuid": "7f4ba1a2-43dd-45b1-aa3f-0b3ca2ebd5c8",
+    "response": "SkinPacks\\Responses\\MarioMashUpBinary.json"
+  },
+  {
     "uuid": "2f60a7a0-8010-49b1-8b57-851ac41f34cf",
     "response": "SkinPacks\\Responses\\SkinPack4Binary.json"
   },
