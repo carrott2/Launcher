@@ -1,0 +1,17 @@
+App.TopLabel.Name=Bedrock Cosmos
+Home.LaunchButton.Launch=LAUNCH
+Home.LaunchButton.Updating=Updating...
+Home.LaunchButton.Entering=Entering the Cosmos...
+Home.LaunchButton.Running=RUNNING
+Home.LaunchButton.Listening=LISTENING
+Home.StatusLabel.Waiting=Waiting...
+Home.StatusLabel.NoInternet=Error: Unable to connect to the Internet.\nBedrock Cosmos requires an active Internet connection to function.
+Home.StatusLabel.ProxyDisabled=Proxy is disabled.\nOpen Minecraft to start the service.
+Home.StatusLabel.ProxyEnabled=Proxy is enabled.\nClose Minecraft to stop the service.
+About.AboutLabel.Text=Bedrock Cosmos is a local Marketplace proxy for Minecraft Bedrock Edition that adds various free Capes and Skin Packs directly to the game!\n\nBedrock Cosmos will always remain free and open-source. Our Discord and GitHub information is below, where you can apply to become a creator, report bugs, or join our community!
+About.DiscordLabel.Text=Discord
+About.GitHubLabel.Text=GitHub
+Settings.BackgroundMode.Title=Background Mode
+Settings.BackgroundMode.Description=When enabled, Bedrock Cosmos will minimize to the system tray instead of the taskbar. The proxy service will also automatically start/stop when Minecraft is opened/closed, respectively.
+Settings.Language.Title=Language
+Settings.Language.Description=Change the language used in the Bedrock Cosmos Launcher.

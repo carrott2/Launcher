@@ -1,18 +1,11 @@
 ﻿using BedrockCosmos.App.UI;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Data.Odbc;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Reflection.Emit;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace BedrockCosmos.App
 {

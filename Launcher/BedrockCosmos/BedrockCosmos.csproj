@@ -139,6 +139,9 @@
     <Compile Include="App\CosmosConsole.cs" />
     <Compile Include="App\LaunchManager.cs" />
     <Compile Include="App\SettingsManager.cs" />
+    <Compile Include="App\UI\GradientComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="App\UI\RoundGradientButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -199,6 +202,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Texts\en_US.lang">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

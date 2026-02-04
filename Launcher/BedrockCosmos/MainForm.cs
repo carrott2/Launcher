@@ -150,7 +150,7 @@ namespace BedrockCosmos
                     }
                     else
                     {
-                        if (launchManager.CheckResponsesUpdate() && updateLauncher)
+                        if (launchManager.CheckResponsesUpdate() && !updateLauncher)
                             launchManager.UpdateResponses();
 
                         await Task.Run(() =>
@@ -231,7 +231,12 @@ namespace BedrockCosmos
             {
                 LaunchButton.Enabled = false;
                 LaunchButton.Text = "LISTENING";
-                StatusLabel.Text = "Proxy is disabled.\nOpen Minecraft to start the service.";
+
+                if (SettingsManager.ProxyStarted)
+                    StatusLabel.Text = "Proxy is enabled.\nClose Minecraft to stop the service.";
+                else
+                    StatusLabel.Text = "Proxy is disabled.\nOpen Minecraft to start the service.";
+
                 BackgroundModeTimer.Start();
                 CosmosConsole.WriteLine("Background Mode enabled.");
             }
