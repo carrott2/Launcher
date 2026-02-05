@@ -32,6 +32,11 @@ namespace BedrockCosmos.App
         public static string Settings_Language_Title { get; set; }
         public static string Settings_Language_Description { get; set; }
 
+        // Update
+        public static string Update_UpdateLabel_Text { get; set; }
+        public static string Update_UpdateButton_Text { get; set; }
+        public static string Update_CancelUpdateButton_Text { get; set; }
+
         public static void Load(string path)
         {
             foreach (string line in File.ReadAllLines(path))

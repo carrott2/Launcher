@@ -275,7 +275,7 @@
             this.AboutLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.AboutLabel.Location = new System.Drawing.Point(120, 86);
             this.AboutLabel.Name = "AboutLabel";
-            this.AboutLabel.Size = new System.Drawing.Size(560, 140);
+            this.AboutLabel.Size = new System.Drawing.Size(560, 185);
             this.AboutLabel.TabIndex = 6;
             this.AboutLabel.Text = resources.GetString("AboutLabel.Text");
             this.AboutLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -468,7 +468,7 @@
             this.UpdateLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.UpdateLabel.Location = new System.Drawing.Point(180, 124);
             this.UpdateLabel.Name = "UpdateLabel";
-            this.UpdateLabel.Size = new System.Drawing.Size(440, 75);
+            this.UpdateLabel.Size = new System.Drawing.Size(440, 100);
             this.UpdateLabel.TabIndex = 11;
             this.UpdateLabel.Text = "A new update is available for the Bedrock Cosmos Launcher!\r\n\r\nSelect \"Update\" to " +
     "begin the installation.\r\n\r\n\r\n\r\n";

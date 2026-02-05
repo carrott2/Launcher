@@ -15,3 +15,6 @@ Settings.BackgroundMode.Title=バックグラウンドモード
 Settings.BackgroundMode.Description=有効にすると、Bedrock Cosmos はタスクバーではなく、システムトレイに最小化されます。また、プロキシサービスは Minecraft を開いたときに自動で起動し、閉じたときに自動で停止します。
 Settings.Language.Title=言語
 Settings.Language.Description=Bedrock Cosmosランチャーで使用する言語を変更する
+Update.UpdateLabel.Text=ベッドロック・コスモス・ランチャーの新しいアップデートが利用可能です！「アップデート」を選択して、インストールを開始してください。
+Update.UpdateButton.Text=アップデート
+Update.CancelUpdateButton.Text=キャンセル

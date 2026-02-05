@@ -356,6 +356,9 @@ namespace BedrockCosmos
             BackgroundModeDescriptionLabel.Text = LanguageHandler.Settings_BackgroundMode_Description;
             LanguageTitleLabel.Text = LanguageHandler.Settings_Language_Title;
             LanguageDescriptionLabel.Text = LanguageHandler.Settings_Language_Description;
+            UpdateLabel.Text = LanguageHandler.Update_UpdateLabel_Text;
+            UpdateButton.Text = LanguageHandler.Update_UpdateButton_Text;
+            CancelUpdateButton.Text = LanguageHandler.Update_CancelUpdateButton_Text;
 
             if (!SettingsManager.ProxyStarted && !SettingsManager.BackgroundMode)
                 LaunchButton.Text = LanguageHandler.Home_LaunchButton_Launch;

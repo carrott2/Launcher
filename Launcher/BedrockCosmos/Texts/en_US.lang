@@ -15,3 +15,6 @@ Settings.BackgroundMode.Title=Background Mode
 Settings.BackgroundMode.Description=When enabled, Bedrock Cosmos will minimize to the system tray instead of the taskbar. The proxy service will also automatically start/stop when Minecraft is opened/closed, respectively.
 Settings.Language.Title=Language
 Settings.Language.Description=Change the language used in the Bedrock Cosmos Launcher.
+Update.UpdateLabel.Text=A new update is available for the Bedrock Cosmos Launcher!\n\nSelect "Update" to begin the installation.
+Update.UpdateButton.Text=Update
+Update.CancelUpdateButton.Text=Cancel
