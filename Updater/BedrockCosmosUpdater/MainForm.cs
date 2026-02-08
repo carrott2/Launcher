@@ -1,93 +1,43 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Net;
 using System.Windows.Forms;
 
 namespace BedrockCosmosUpdater
 {
     public partial class MainForm : Form
     {
-        int success = 0;
-        string programPath = "";
-        int process1 = 0;
-        string internetCheckStartup;
-        string appTest;
+        private readonly AsyncFileDownload asyncDownload;
+
+        string programPath = AppDomain.CurrentDomain.BaseDirectory;
+        string downloadPath = AppDomain.CurrentDomain.BaseDirectory + @"Misc\";
+        string updateDelayPath = AppDomain.CurrentDomain.BaseDirectory + @"Misc\UpdateDelayTest.txt";
+        string updaterFilePath = AppDomain.CurrentDomain.BaseDirectory + AppDomain.CurrentDomain.FriendlyName;
+        bool successfulUpdate = false;
 
         public MainForm()
         {
             InitializeComponent();
+            asyncDownload = new AsyncFileDownload();
 
-            if (!Directory.Exists(@"C:\temp"))
-            {
-                Directory.CreateDirectory(@"C:\temp");
-            }
-            if (!Directory.Exists(@"C:\temp\ProjectStar\Miscellaneous"))
-            {
-                Directory.CreateDirectory(@"C:\temp\ProjectStar\Miscellaneous");
-            }
-            if (!Directory.Exists(@"C:\temp\ProjectStar\Updates"))
-            {
-                Directory.CreateDirectory(@"C:\temp\ProjectStar\Updates");
-            }
+            if (!Directory.Exists(downloadPath))
+                Directory.CreateDirectory(downloadPath);
 
-            if (!File.Exists(@"C:\temp\ProjectStar\Updates\DelayTest.txt"))
-            {
-                using (FileStream fs = File.Create(@"C:\temp\ProjectStar\Updates\DelayTest.txt"))
-                {
-
-                }
-
-                StreamWriter sw = new StreamWriter(@"C:\temp\ProjectStar\Updates\DelayTest.txt");
-                sw.WriteLine("0");
-                sw.Close();
-            }
-
-            StreamReader sr = new StreamReader(@"C:\temp\ProjectStar\Updates\DelayTest.txt");
-            appTest = sr.ReadLine();
-            sr.Close();
-
-            if(appTest == "0")
-            {
-                using (FileStream fs = File.Create(@"C:\temp\ProjectStar\Updates\DelayTest.txt"))
-                {
-
-                }
-
-                StreamWriter sw = new StreamWriter(@"C:\temp\ProjectStar\Updates\DelayTest.txt");
-                sw.WriteLine("1");
-                sw.Close();
-
-                openDelay.Start();
-            } 
-            else if (appTest == "1")
-            {
-                using (FileStream fs = File.Create(@"C:\temp\ProjectStar\Updates\DelayTest.txt"))
-                {
-
-                }
-
-                StreamWriter sw = new StreamWriter(@"C:\temp\ProjectStar\Updates\DelayTest.txt");
-                sw.WriteLine("0");
-                sw.Close();
-
-                delay.Start();
-            }
+            Startup();
         }
 
         // Start of window movement
         bool drag = false;
         Point start_point = new Point(0, 0);
 
-        private void dragPanel_MouseDown(object sender, MouseEventArgs e)
+        private void DragPanel_MouseDown(object sender, MouseEventArgs e)
         {
             drag = true;
             start_point = new Point(e.X, e.Y);
         }
 
-        private void dragPanel_MouseMove(object sender, MouseEventArgs e)
+        private void DragPanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (drag)
             {
@@ -96,170 +46,119 @@ namespace BedrockCosmosUpdater
             }
         }
 
-        private void dragPanel_MouseUp(object sender, MouseEventArgs e)
+        private void DragPanel_MouseUp(object sender, MouseEventArgs e)
         {
             drag = false;
         }
         // End of window movement
 
-        private void statusLabel_Click(object sender, EventArgs e)
+        private void Startup()
         {
+            if (!File.Exists(updateDelayPath))
+                File.WriteAllText(updateDelayPath, "0");
 
-        }
+            string appTest = File.ReadAllText(updateDelayPath); // Helps fix app still opened error.
 
-        private void delay_Tick(object sender, EventArgs e)
-        {
-            statusLabel.Text = "Checking internet connection...";
-            WebClient internetCheckDownload = new WebClient();
-            internetCheckDownload.DownloadFileAsync(new Uri("https://github.com/BionicBen/ProjectStarFiles/blob/main/InternetCheck.txt?raw=true"), @"C:\temp\ProjectStar\Miscellaneous\InternetCheck.txt");
-            internetCheckDownload.DownloadFileCompleted += new AsyncCompletedEventHandler(internetCheckCompleted);
-            delay.Stop();
-        }
-
-        private void internetCheckCompleted(object sender, AsyncCompletedEventArgs e)
-        {
-            StreamReader sr = new StreamReader(@"C:\temp\ProjectStar\Miscellaneous\InternetCheck.txt");
-            internetCheckStartup = sr.ReadLine();
-            sr.Close();
-
-            if (internetCheckStartup != "1")
+            if (appTest == "0")
             {
-                statusLabel.Text = "Error! Please connect to the internet and retry.";
-                closeButton.Visible = true;
-            }
-            else if (internetCheckStartup == "1")
-            {
-                startUpdater();
-            }
-        }
-
-        private void startUpdater()
-        {
-            statusLabel.Text = "Locating original files...";
-            try
-            {
-                StreamReader sr = new StreamReader(@"C:\temp\ProjectStar\Updates\InstallationPath.txt");
-                programPath = sr.ReadLine();
-                sr.Close();
-
-                process1 = 1;
-            }
-            catch (Exception)
-            {
-                statusLabel.Text = "Error! Try opening Project Star and retrying installation.";
-                closeButton.Visible = true;
-            }
-
-            if (process1 == 1)
-            {
-                WebClient webClient = new WebClient();
-                webClient.DownloadFileAsync(new Uri("https://github.com/BionicBen/ProjectStarFiles/blob/main/CurrentVersion.txt?raw=true"), @"C:\temp\ProjectStar\Updates\LatestVersion.txt");
-                webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CurrentVersionCompleted);
-            }
-        }
-
-        private void CurrentVersionCompleted(object sender, AsyncCompletedEventArgs e)
-        {
-            shortWait.Start();
-        }
-
-        private void DownloadNewVersion()
-        {
-            statusLabel.Text = "Downloading new launcher version...";
-
-            WebClient webClient = new WebClient();
-            webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(FinishInstallation);
-            webClient.DownloadFileAsync(new Uri("https://github.com/BionicBen/ProjectStarFiles/blob/main/ProjectStar/ProjectStar.exe?raw=true"), programPath + @"\ProjectStar.exe");
-        }
-
-        private void FinishInstallation(object sender, AsyncCompletedEventArgs e)
-        {
-            success = 1;
-            statusLabel.Text = "Successfully updated Project Star.";
-            closeButton.Visible = true;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (success == 1 && File.Exists(programPath + @"\ProjectStar.exe"))
-            {
-                Process.Start(programPath + @"\ProjectStar.exe");
-            }
-            this.Close();
-        }
-
-        private void shortWait_Tick(object sender, EventArgs e)
-        {
-            DownloadNewVersion();
-            shortWait.Stop();
-        }
-
-        private void openDelay_Tick(object sender, EventArgs e)
-        {
-            statusLabel.Text = "Opening...";
-            statusLabel.Text = "Locating original files...";
-            try
-            {
-                StreamReader sr = new StreamReader(@"C:\temp\ProjectStar\Updates\InstallationPath.txt");
-                programPath = sr.ReadLine();
-                sr.Close();
-            }
-            catch (Exception)
-            {
-                statusLabel.Text = "Error! Try opening Project Star and retrying installation.";
-                closeButton.Visible = true;
-            }
-
-            if (File.Exists(Application.StartupPath + @"\ProjectStarUpdater.exe"))
-            {
-                if (File.Exists(programPath + @"\DiscordRPC.dll"))
-                {
-                    File.Delete(programPath + @"\DiscordRPC.dll");
-                }
-                if (File.Exists(programPath + @"\Guna.UI2.dll"))
-                {
-                    File.Delete(programPath + @"\Guna.UI2.dll");
-                }
-                if (File.Exists(programPath + @"\Newtonsoft.Json.dll"))
-                {
-                    File.Delete(programPath + @"\Newtonsoft.Json.dll");
-                }
-                if (File.Exists(programPath + @"\DotNetZip.dll"))
-                {
-                    File.Delete(programPath + @"\DotNetZip.dll");
-                }
-                if (File.Exists(programPath + @"\FilePermHelper.dll"))
-                {
-                    File.Delete(programPath + @"\FilePermHelper.dll");
-                }
-                if (File.Exists(programPath + @"\IObitUnlocker.sys"))
-                {
-                    try
-                    {
-                        File.Delete(programPath + @"\IObitUnlocker.sys");
-                    }
-                    catch (Exception)
-                    {
-
-                    }
-                }
-                if (File.Exists(programPath + @"\ProjectStar.exe"))
-                {
-                    File.Delete(programPath + @"\ProjectStar.exe");
-                }
-                if (Directory.Exists(programPath + @"\Confused"))
-                {
-                    Directory.Delete(programPath + @"\Confused");
-                }
-
-                Process.Start(Application.StartupPath + @"\ProjectStarUpdater.exe");
-                this.Close();
+                File.WriteAllText(updateDelayPath, "1");
+                FiveSecOpenDelay.Start();
             }
             else
             {
-                statusLabel.Text = "Error! Try opening Project Star and retrying installation.";
-                closeButton.Visible = true;
+                try
+                {
+                    File.Delete(updateDelayPath);
+                }
+                catch
+                {
+
+                }
+
+                StartUpdate();
             }
+        }
+
+        private void FiveSecOpenDelay_Tick(object sender, EventArgs e)
+        {
+            StatusLabel.Text = "Opening...";
+
+            if (File.Exists(updaterFilePath))
+            {
+                Process.Start(updaterFilePath);
+                Close();
+            }
+            else
+            {
+                try
+                {
+                    File.Delete(updateDelayPath);
+                }
+                catch
+                {
+
+                }
+
+                StatusLabel.Text = "An error has occurred. Please try opening Bedrock Cosmos and restarting the update.";
+                CloseButton.Visible = true;
+            }
+        }
+
+        private async void StartUpdate()
+        {
+            StatusLabel.Text = "Downloading update file...";
+
+            try
+            {
+                await asyncDownload.DownloadFileAsync("https://raw.githubusercontent.com/Bedrock-Cosmos/Launcher/main/LauncherFiles/BedrockCosmos.exe", downloadPath + @"BedrockCosmos.exe");
+                MoveNewVersion();
+            }
+            catch
+            {
+                StatusLabel.Text = "An error has occurred. Please connect to the Internet and restart the update.";
+                CloseButton.Visible = true;
+            }
+        }
+
+        private void MoveNewVersion()
+        {
+            StatusLabel.Text = "Applying update...";
+
+            if (File.Exists(programPath + @"BedrockCosmos.exe"))
+                File.Delete(programPath + @"BedrockCosmos.exe");
+
+            File.Move(downloadPath + @"BedrockCosmos.exe", programPath + @"BedrockCosmos.exe");
+
+            FinishInstallation();
+        }
+
+        private void FinishInstallation()
+        {
+            successfulUpdate = true;
+            StatusLabel.Text = "Successfully updated Bedrock Cosmos!";
+            CloseButton.Visible = true;
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            if (successfulUpdate)
+            {
+                try
+                {
+                    Process.Start(programPath + @"BedrockCosmos.exe");
+                }
+                catch
+                {
+
+                }
+            }
+
+            Close();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            asyncDownload.Dispose();
         }
     }
 }
