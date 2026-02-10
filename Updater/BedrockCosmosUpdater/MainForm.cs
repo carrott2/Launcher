@@ -8,10 +8,11 @@ namespace BedrockCosmosUpdater
 {
     public partial class MainForm : Form
     {
-        private readonly AsyncFileDownload asyncDownload;
+        private readonly FileOperations fileOps;
 
         string programPath = AppDomain.CurrentDomain.BaseDirectory;
         string downloadPath = AppDomain.CurrentDomain.BaseDirectory + @"Misc\";
+        string updateCachePath = AppDomain.CurrentDomain.BaseDirectory + @"Misc\UpdateCache";
         string updateDelayPath = AppDomain.CurrentDomain.BaseDirectory + @"Misc\UpdateDelayTest.txt";
         string updaterFilePath = AppDomain.CurrentDomain.BaseDirectory + AppDomain.CurrentDomain.FriendlyName;
         bool successfulUpdate = false;
@@ -19,10 +20,13 @@ namespace BedrockCosmosUpdater
         public MainForm()
         {
             InitializeComponent();
-            asyncDownload = new AsyncFileDownload();
+            fileOps = new FileOperations();
 
             if (!Directory.Exists(downloadPath))
                 Directory.CreateDirectory(downloadPath);
+
+            if (!Directory.Exists(updateCachePath))
+                Directory.CreateDirectory(updateCachePath);
 
             Startup();
         }
@@ -106,30 +110,62 @@ namespace BedrockCosmosUpdater
 
         private async void StartUpdate()
         {
-            StatusLabel.Text = "Downloading update file...";
+            bool fileDownloaded = false;
+            StatusLabel.Text = "Downloading update files...";
 
             try
             {
-                await asyncDownload.DownloadFileAsync("https://raw.githubusercontent.com/Bedrock-Cosmos/Launcher/main/LauncherFiles/BedrockCosmos.exe", downloadPath + @"BedrockCosmos.exe");
-                MoveNewVersion();
+                await fileOps.DownloadFileAsync("https://raw.githubusercontent.com/Bedrock-Cosmos/Launcher/main/LauncherFiles/BedrockCosmos.zip", updateCachePath + @"BedrockCosmos.zip");
+                fileDownloaded = true;
             }
             catch
             {
                 StatusLabel.Text = "An error has occurred. Please connect to the Internet and restart the update.";
                 CloseButton.Visible = true;
             }
+
+            if (fileDownloaded)
+                ExtractNewVersion();
         }
 
-        private void MoveNewVersion()
+        private async void ExtractNewVersion()
         {
+            bool fileExtracted = false;
+            StatusLabel.Text = "Extracting update files...";
+
+            try
+            {
+                await fileOps.ExtractFileAsync(updateCachePath + @"BedrockCosmos.zip", updateCachePath, true);
+                fileExtracted = true;
+            }
+            catch
+            {
+                StatusLabel.Text = "An error has occurred. Please connect to the Internet and restart the update.";
+                CloseButton.Visible = true;
+            }
+
+            if (fileExtracted)
+                MoveNewVersion();
+        }
+
+        private async void MoveNewVersion()
+        {
+            bool filesMoved = false;
             StatusLabel.Text = "Applying update...";
+            await fileOps.MoveDirectory(updateCachePath, programPath);
+            try
+            {
+                
+                filesMoved = true;
+            }
+            catch
+            {
+                StatusLabel.Text = "An error has occurred. Please connect to the Internet and restart the update.";
+                CloseButton.Visible = true;
+            }
 
-            if (File.Exists(programPath + @"BedrockCosmos.exe"))
-                File.Delete(programPath + @"BedrockCosmos.exe");
-
-            File.Move(downloadPath + @"BedrockCosmos.exe", programPath + @"BedrockCosmos.exe");
-
-            FinishInstallation();
+            if (filesMoved)
+                FinishInstallation();
         }
 
         private void FinishInstallation()
@@ -158,7 +194,7 @@ namespace BedrockCosmosUpdater
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            asyncDownload.Dispose();
+            fileOps.Dispose();
         }
     }
 }

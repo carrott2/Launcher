@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AsyncFileDownload.cs" />
+    <Compile Include="FileOperations.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
