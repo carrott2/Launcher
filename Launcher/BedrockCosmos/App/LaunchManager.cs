@@ -159,6 +159,7 @@ namespace BedrockCosmos.App
                 await _asyncDownload.DownloadFileAsync(fileUrl, downloadPath);
                 await _asyncDownload.ExtractFileAsync(downloadPath, extractPath, true);
                 File.WriteAllText(_miscDirectory + @"\ResponsesVersion.txt", _latestResponsesVersion.ToString());
+                _currentResponsesVersion = _latestResponsesVersion;
             }
             catch (Exception)
             {
