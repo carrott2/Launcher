@@ -11,10 +11,10 @@ namespace BedrockCosmos.App
 {
     internal class LaunchManager
     {
-        private Version _currentLauncherVersion = new Version("1.0.0");
-        private Version _latestLauncherVersion = new Version("1.0.0");
-        private int _currentResponsesVersion = 1;
-        private int _latestResponsesVersion = 1;
+        private Version _currentLauncherVersion = new Version("0.0.1");
+        private Version _latestLauncherVersion = new Version("0.0.1");
+        private int _currentResponsesVersion = 0;
+        private int _latestResponsesVersion = 0;
         private string _miscDirectory = AppDomain.CurrentDomain.BaseDirectory + @"Misc";
         private AsyncFileDownload _asyncDownload = null;
         private RoundGradientButton _launchButton = null;

@@ -69,6 +69,7 @@ namespace BedrockCosmos.App
                     CosmosConsole.WriteLine("Developer mode enabled.");
 
                 _devMenuEnabled = true;
+                SaveSettings();
                 return true;
             }
         }
@@ -77,6 +78,7 @@ namespace BedrockCosmos.App
         {
             _devMenuClicks = 0;
             _devMenuEnabled = false;
+            SaveSettings();
             CosmosConsole.WriteLine("Developer mode disabled.");
         }
 
