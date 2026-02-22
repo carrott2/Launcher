@@ -317,7 +317,7 @@ namespace Titanium.Web.Proxy.Examples.Basic
 
                             string jsonContent = JsonParser.ReadJsonFileContent(localPath);
                             e.SetResponseBodyString(jsonContent);
-                            CosmosConsole.WriteLine(consoleSender, $"Replaced response for {e.HttpClient.Request.Url}");
+                            CosmosConsole.WriteLine("Parser", $"Replaced response for {e.HttpClient.Request.Url} using {Path.GetFileName(localPath)}");
                         }
                     }
                     else if (currentUri == "https://20ca2.playfabapi.com/Catalog/Search")
@@ -333,17 +333,19 @@ namespace Titanium.Web.Proxy.Examples.Basic
 
                             string jsonContent = JsonParser.ReadJsonFileContent(localPath);
                             e.SetResponseBodyString(jsonContent);
-                            CosmosConsole.WriteLine(consoleSender, $"Replaced response for {e.HttpClient.Request.Url}");
+                            CosmosConsole.WriteLine("Parser", $"Replaced response for {e.HttpClient.Request.Url} using {Path.GetFileName(localPath)}");
                         }
                     }
-                    else if (currentUri == "https://store.mktpl.minecraft-services.net/api/v1.0/layout/pages/MultiItemPage_StoreRoot")
+                    else if (currentUri == "https://store.mktpl.minecraft-services.net/api/v1.0/layout/pages/MultiItemPage_StoreRoot" ||
+                        currentUri == "https://store.mktpl.minecraft-services.net/api/v1.0/layout/pages/MultiItemPage_SkinsRoot")
                     {
                         // Append custom marketplace button to response if accessing the main page
                         string responseBody = await e.GetResponseBodyAsString();
                         string location = "result.rows"; // Works the same as ["result"]["rows"]
-                        string appendedJson = JsonParser.AppendJsonToStart(responseBody, localPath, location);
+                        string appendedJson = JsonParser.AppendJsonToStart(responseBody, localPath, location); ;
+
                         e.SetResponseBodyString(appendedJson);
-                        CosmosConsole.WriteLine(consoleSender, $"Appended response for {e.HttpClient.Request.Url}");
+                        CosmosConsole.WriteLine("Parser", $"Appended response for {e.HttpClient.Request.Url} using {Path.GetFileName(localPath)}");
                     }
                     else if (currentUri == "https://messaging.mktpl.minecraft-services.net/api/v1.0/session/start")
                     {
@@ -353,7 +355,7 @@ namespace Titanium.Web.Proxy.Examples.Basic
                         // string newsPath = currentPathForResponse + @"News\CurrentNews_append.json";
 
                         NewsManager.RetrieveNewsHistory();
-                        string newsTabDataPath = AppDomain.CurrentDomain.BaseDirectory + @"News\news.json";
+                        string newsTabDataPath = AppDomain.CurrentDomain.BaseDirectory + @"CustomJsons\news.json";
 
                         // Append front announcement
                         //string appendedJson = JsonParser.AppendJsonToEnd(responseBody, announcementPath, location);
@@ -363,18 +365,31 @@ namespace Titanium.Web.Proxy.Examples.Basic
                         string appendedJson = JsonParser.AppendJsonToStart(responseBody, newsTabDataPath, location);
 
                         e.SetResponseBodyString(appendedJson);
-                        CosmosConsole.WriteLine(consoleSender, $"Appended response for {e.HttpClient.Request.Url}");
+                        CosmosConsole.WriteLine("Parser", $"Appended response for {e.HttpClient.Request.Url} using {Path.GetFileName(localPath)}");
                     }
+                    /*else if (currentUri == "https://store.mktpl.minecraft-services.net/api/v1.0/layout/pages/DressingRoom_PersonaProfile")
+                    {
+                        // Append custom items to main dressing room page
+                        string responseBody = await e.GetResponseBodyAsString();
+                        string location = "result.rows[2].items[0]";
+                        string firstAppendPath = currentPathForResponse + @"MainPages\DressingRoom_PersonaProfile_Persona_append.json";
+
+                        string appendedJson = JsonParser.AppendJsonToStart(responseBody, firstAppendPath, location);
+
+                        e.SetResponseBodyString(appendedJson);
+                        CosmosConsole.WriteLine("Parser", appendedJson);
+                        CosmosConsole.WriteLine("Parser", $"Appended response for {e.HttpClient.Request.Url} using {Path.GetFileName(localPath)}");
+                    }*/
                     else
                     {
                         string jsonContent = JsonParser.ReadJsonFileContent(localPath);
                         e.SetResponseBodyString(jsonContent);
-                        CosmosConsole.WriteLine(consoleSender, $"Replaced response for {e.HttpClient.Request.Url}");
+                        CosmosConsole.WriteLine("Parser", $"Replaced response for {e.HttpClient.Request.Url} using {Path.GetFileName(localPath)}");
                     }
                 }
                 catch (Exception ex)
                 {
-                    CosmosConsole.WriteLine(consoleSender, $"Error replacing response: {ex.Message}");
+                    CosmosConsole.WriteLine("Parser", $"Error replacing response: {ex.Message}");
                 }
             }
         }
