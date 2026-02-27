@@ -210,6 +210,7 @@ namespace BedrockCosmos.Proxy
                         //case ProxyUrlDefinitions.PopCultureUrl:
                         //case ProxyUrlDefinitions.TopSellersUrl:
                         //case ProxyUrlDefinitions.PopularUrl:
+                        case ProxyUrlDefinitions.PauseMenuUrl:
                         case ProxyUrlDefinitions.CubeCraftUrl:
                         case ProxyUrlDefinitions.EnchantedUrl:
                         case ProxyUrlDefinitions.GalaxiteUrl:

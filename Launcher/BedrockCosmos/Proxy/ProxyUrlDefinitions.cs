@@ -11,6 +11,7 @@
         //internal const string PopCultureUrl = "https://store.mktpl.minecraft-services.net/api/v1.0/layout/pages/MultiItemPage_41a3a746-1797-438f-a410-2f5010ee59fa";
         //internal const string TopSellersUrl = "https://store.mktpl.minecraft-services.net/api/v1.0/layout/pages/MultiItemPage_305ac6f4-b84c-4d07-ab93-a966b136ed81";
         //internal const string PopularUrl = "https://store.mktpl.minecraft-services.net/api/v1.0/layout/pages/MultiItemPage_af88faec-3b1a-452e-bf45-fe67e9cdb14d";
+        internal const string PauseMenuUrl = "https://store.mktpl.minecraft-services.net/api/v1.0/layout/pages/MultiItemPage_PauseMenu";
         internal const string CubeCraftUrl = "https://store.mktpl.minecraft-services.net/api/v1.0/layout/pages/ServerPage_master_player_account!4B74434622F61126";
         internal const string EnchantedUrl = "https://store.mktpl.minecraft-services.net/api/v1.0/layout/pages/ServerPage_master_player_account!5366842229349662";
         internal const string GalaxiteUrl = "https://store.mktpl.minecraft-services.net/api/v1.0/layout/pages/ServerPage_master_player_account!33171D90895F3788";
