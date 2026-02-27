@@ -188,8 +188,7 @@ namespace BedrockCosmos.Proxy
             string requestBody = e.UserData as string;
             string currentUri = e.HttpClient.Request.RequestUri.AbsoluteUri;
 
-            if (e.HttpClient.Request.Method.Equals("POST", StringComparison.OrdinalIgnoreCase) &&
-            urlData != null)
+            if (urlData != null)
             {
                 try
                 {
