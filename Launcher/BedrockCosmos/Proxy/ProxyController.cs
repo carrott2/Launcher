@@ -317,8 +317,12 @@ namespace BedrockCosmos.Proxy
             }
             else
             {
-                userData.RequestLogs = userData.RequestLogs + $"└── On Response: No local Json file was found from Playfab Get Item " +
-                    $"search of item {getItemBody.itemid}. Processed request normally.\n";
+                if (getItemBody.itemid.Length < 1)
+                    userData.RequestLogs = userData.RequestLogs + $"└── On Response: No local Json file was found from Playfab Get Item " +
+                        $"search of item [NONE]. Processed request normally.\n";
+                else
+                    userData.RequestLogs = userData.RequestLogs + $"└── On Response: No local Json file was found from Playfab Get Item " +
+                        $"search of item {getItemBody.itemid}. Processed request normally.\n";
             }
         }
 
@@ -338,8 +342,12 @@ namespace BedrockCosmos.Proxy
             }
             else
             {
-                userData.RequestLogs = userData.RequestLogs + $"└── On Response: No local Json file was found from Playfab Search " +
-                    $"of item {searchUuid}. Processed request normally.\n";
+                if (searchUuid.Length < 1)
+                    userData.RequestLogs = userData.RequestLogs + $"└── On Response: No local Json file was found from Playfab Search " +
+                        $"of item [NONE]. Processed request normally.\n";
+                else
+                    userData.RequestLogs = userData.RequestLogs + $"└── On Response: No local Json file was found from Playfab Search " +
+                        $"of item {searchUuid}. Processed request normally.\n";
             }
         }
 
