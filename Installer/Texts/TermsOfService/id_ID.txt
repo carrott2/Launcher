@@ -1,0 +1,103 @@
+KETENTUAN LAYANAN:
+1. Penerimaan Ketentuan
+Dengan mengunduh, menginstal, atau menggunakan Bedrock Cosmos, Anda setuju untuk terikat oleh Ketentuan Layanan ini. Jika Anda tidak setuju dengan ketentuan ini, jangan gunakan peluncur atau layanan kami.
+
+2. Deskripsi Layanan
+Bedrock Cosmos adalah proksi khusus untuk Minecraft Bedrock Edition yang beroperasi secara lokal di perangkat Anda untuk menyediakan fitur-fitur berikut:
+
+- Jubah Kustom: Menambahkan jubah kustom ke game Anda dan memungkinkan Anda mengunggah serta menggunakan desain jubah kustom Anda sendiri
+- Konten Marketplace Tersembunyi: Mengungkapkan konten marketplace yang mungkin tersembunyi atau tidak tersedia di platform atau wilayah tertentu
+- Fungsionalitas Paket Skin yang Dipulihkan: Memperbaiki dan memulihkan fungsionalitas paket skin tertentu dengan menambahkan kembali jubah, animasi, dan skin yang sebelumnya dihapus
+- Paket Skin Kustom: Menambahkan beberapa paket skin kustom ke game Anda yang dibuat oleh para kreator Bedrock Cosmos
+
+Layanan ini disediakan secara gratis, sepenuhnya bersumber terbuka, dan beroperasi sepenuhnya sebagai proksi lokal tanpa mengumpulkan data pengguna apa pun.
+
+3. Tanggung Jawab Pengguna
+Dengan menggunakan Bedrock Cosmos, Anda setuju untuk:
+
+- Menggunakan peluncur hanya dengan salinan Minecraft Bedrock Edition yang dibeli secara sah
+- Mematuhi semua hukum dan peraturan yang berlaku
+- Tidak menggunakan peluncur untuk tujuan ilegal atau tidak sah
+- Tidak menggunakan peluncur untuk menipu, melecehkan, menyalahgunakan, atau merugikan orang lain
+- Tidak mendistribusikan versi modifikasi dari peluncur tanpa atribusi yang tepat
+
+4. Penggunaan Akun dan Server
+Saat menggunakan Bedrock Cosmos di lingkungan multipemain, Anda mengakui bahwa administrator server mungkin memiliki aturan mereka sendiri mengenai konten kustom. Kami tidak bertanggung jawab atas pembatasan atau larangan yang diberlakukan oleh server pihak ketiga.
+
+5. Kekayaan Intelektual
+Bedrock Cosmos adalah perangkat lunak sumber terbuka yang dilisensikan berdasarkan ketentuan yang ditentukan dalam repositori GitHub kami. Meskipun Anda bebas untuk melihat dan memodifikasi kode sesuai dengan ketentuan lisensi, Anda harus memberikan atribusi yang tepat saat berbagi atau mendistribusikan perangkat lunak.
+
+Jubah kustom dan konten lain yang dibuat oleh komunitas tetap menjadi milik para pembuatnya masing-masing. Minecraft, Minecraft Bedrock Edition, dan merek dagang terkait adalah milik Mojang Studios dan Microsoft.
+
+6. Penafian Garansi
+Bedrock Cosmos disediakan "sebagaimana adanya" tanpa garansi dalam bentuk apa pun, baik tersurat maupun tersirat. Kami tidak menjamin bahwa peluncur akan bebas dari kesalahan, tersedia secara terus-menerus, atau segera aman jika ditemukan kerentanan. Penggunaan peluncur adalah risiko Anda sendiri.
+
+7. Batasan Tanggung Jawab
+Sejauh maksimum yang diizinkan oleh hukum, Bedrock Cosmos dan para pengembangnya tidak akan bertanggung jawab atas kerusakan tidak langsung, insidental, khusus, konsekuensial, atau hukuman, atau kerugian laba atau pendapatan apa pun, baik yang terjadi secara langsung maupun tidak langsung, atau kerugian data, penggunaan, niat baik, atau kerugian tidak berwujud lainnya yang diakibatkan oleh:
+
+- Penggunaan atau ketidakmampuan Anda untuk menggunakan peluncur
+- Akses tidak sah ke atau penggunaan layanan dan/atau server kami
+- Bug atau kerentanan apa pun yang ditemukan dalam peluncur
+- Kesalahan atau kelalaian apa pun dalam fungsionalitas peluncur
+- Tindakan apa pun yang diambil oleh Mojang Studios, Microsoft, atau administrator server sebagai respons atas penggunaan peluncur oleh Anda
+
+8. Layanan dan Konten Pihak Ketiga
+Bedrock Cosmos berinteraksi dengan server Minecraft yang dioperasikan oleh Mojang Studios dan Microsoft. Kami tidak berafiliasi, didukung, atau disponsori oleh Mojang Studios atau Microsoft. Masalah apa pun dengan layanan Minecraft harus diarahkan ke saluran dukungan resmi mereka.
+
+9. Modifikasi Layanan
+Kami berhak untuk mengubah, menangguhkan, atau menghentikan Bedrock Cosmos kapan saja tanpa pemberitahuan. Kami juga dapat memperbarui Ketentuan Layanan ini secara berkala. Penggunaan peluncur Anda yang berkelanjutan setelah perubahan merupakan penerimaan ketentuan yang dimodifikasi.
+
+10. Konten yang Dibuat Pengguna
+Ketika Anda mengirimkan desain jubah kustom atau paket skin melalui server Discord kami untuk dimasukkan ke dalam Bedrock Cosmos, kami akan menyimpan file jubah Anda beserta nama pengguna Discord Anda untuk atribusi pembuat. Hal ini memungkinkan kami dan pengguna lain untuk mengidentifikasi siapa yang membuat setiap kosmetik dalam aplikasi.
+
+Dengan mengirimkan jubah kustom atau paket skin, Anda memberi kami lisensi non-eksklusif, berlaku di seluruh dunia, dan bebas royalti untuk menggunakan, menampilkan, dan mendistribusikan konten tersebut dalam peluncur dan kepada pengguna Bedrock Cosmos lainnya. Kosmetik yang Anda kirimkan dapat menjadi bagian dari aplikasi dan akan dikaitkan dengan nama pengguna Discord Anda.
+
+Anda menyatakan bahwa Anda memiliki hak untuk memberikan lisensi ini dan bahwa desain jubah/skin Anda tidak melanggar hak pihak ketiga mana pun, termasuk hak cipta, merek dagang, atau hak kekayaan intelektual lainnya.
+
+Anda dapat meminta penghapusan jubah/skin yang dikirimkan kapan saja dengan menghubungi kami melalui server Discord kami. Setelah menerima permintaan Anda, kami akan menghapus kosmetik Anda dari database dan aplikasi kami.
+
+11. Penggunaan yang Dilarang
+Anda setuju untuk tidak menggunakan Bedrock Cosmos untuk:
+
+- Melanggar hukum lokal, negara bagian, nasional, atau internasional mana pun
+- Melanggar atau mengganggu hak kekayaan intelektual kami atau hak kekayaan intelektual orang lain
+- Mengunggah atau mengirimkan virus atau jenis kode berbahaya lainnya
+- Mencoba mendapatkan akses tidak sah ke sistem atau jaringan mana pun
+- Terlibat dalam perilaku apa pun yang membatasi atau menghambat penggunaan peluncur oleh siapa pun
+- Menyamar atau mencoba menyamar sebagai Bedrock Cosmos, pengembang kami, atau pengguna lain
+
+12. Batasan Usia
+Bedrock Cosmos ditujukan untuk pengguna yang memenuhi persyaratan usia minimum untuk Minecraft Bedrock Edition di yurisdiksi mereka. Jika Anda berusia di bawah 13 tahun (atau usia yang berlaku di yurisdiksi Anda), Anda harus mendapatkan persetujuan orang tua untuk menggunakan layanan kami.
+
+13. Privasi
+Penggunaan Bedrock Cosmos Anda juga diatur oleh Kebijakan Privasi kami. Harap tinjau Kebijakan Privasi kami untuk memahami praktik pengumpulan dan penggunaan data kami.
+
+14. Penghentian
+Kami berhak untuk menghentikan atau menangguhkan akses Anda ke Bedrock Cosmos secara langsung, tanpa pemberitahuan atau tanggung jawab sebelumnya, dengan alasan apa pun, termasuk pelanggaran Ketentuan Layanan ini.
+
+15. Hukum yang Berlaku
+Ketentuan Layanan ini akan diatur dan ditafsirkan sesuai dengan hukum yang berlaku, tanpa memperhatikan ketentuan konflik hukum.
+
+16. Ganti Rugi
+Dengan menggunakan Bedrock Cosmos, Anda setuju untuk mengganti rugi, membela, dan membebaskan para pengembang, kontributor, dan distributor perangkat lunak dari klaim, kerusakan, kerugian, tanggung jawab, dan pengeluaran (termasuk biaya hukum) yang timbul dari:
+
+- Penggunaan atau penyalahgunaan perangkat lunak ini oleh Anda
+- Pelanggaran Anda terhadap Ketentuan Layanan Minecraft
+- Klaim apa pun bahwa penggunaan Anda melanggar hak pihak ketiga
+- Modifikasi apa pun yang Anda lakukan pada perangkat lunak
+
+17. Kepatuhan DMCA dan Penghapusan Konten
+Jika Mojang/Microsoft atau perwakilan resmi mana pun percaya bahwa perangkat lunak ini melanggar hak mereka, harap hubungi tim staf kami mengenai masalah tersebut melalui email di contact@bedrock-cosmos.app atau melalui server Discord kami. Kami juga akan:
+
+- Merespons dengan cepat permintaan penghapusan DMCA yang valid
+- Menghapus konten yang melanggar jika diwajibkan secara hukum
+- Bekerja sama sepenuhnya dengan pemegang hak
+
+18. Pemisahan Ketentuan
+Jika ada ketentuan dalam Ketentuan Layanan ini yang dianggap tidak dapat dilaksanakan atau tidak valid, ketentuan tersebut akan dibatasi atau dihilangkan sejauh minimum yang diperlukan sehingga ketentuan ini tetap berlaku penuh.
+
+19. Hubungi Kami
+Untuk pertanyaan tentang Ketentuan Layanan ini, harap hubungi kami melalui server Discord kami, melalui email di contact@bedrock-cosmos.app, atau melalui repositori GitHub kami.
+
+20. Pengakuan
+Dengan menggunakan Bedrock Cosmos, Anda mengakui bahwa Anda telah membaca, memahami, dan setuju untuk terikat oleh Ketentuan Layanan ini.

@@ -1,0 +1,103 @@
+TÉRMINOS DE SERVICIO:
+1. Aceptación de los Términos
+Al descargar, instalar o utilizar Bedrock Cosmos, usted acepta estar sujeto a estos Términos de Servicio. Si no está de acuerdo con estos términos, no utilice nuestro lanzador ni nuestros servicios.
+
+2. Descripción del Servicio
+Bedrock Cosmos es un proxy personalizado para Minecraft Bedrock Edition que opera localmente en su dispositivo para proporcionar las siguientes características:
+
+- Capas Personalizadas: Agrega capas personalizadas a su juego y le permite subir y usar sus propios diseños de capas personalizadas
+- Contenido Oculto del Mercado: Revela contenido del mercado que puede estar oculto o no disponible en ciertas plataformas o regiones
+- Funcionalidad Restaurada de Paquetes de Skins: Corrige y restaura la funcionalidad de paquetes de skins seleccionados al volver a agregar capas, animaciones y skins eliminadas anteriormente
+- Paquetes de Skins Personalizados: Agrega varios paquetes de skins personalizados a su juego creados por los creadores de Bedrock Cosmos
+
+El servicio se proporciona de forma gratuita, es completamente de código abierto y opera enteramente como un proxy local sin recopilar ningún dato del usuario.
+
+3. Responsabilidades del Usuario
+Al usar Bedrock Cosmos, usted acepta:
+
+- Usar el lanzador solo con copias legítimamente adquiridas de Minecraft Bedrock Edition
+- Cumplir con todas las leyes y regulaciones aplicables
+- No usar el lanzador para fines ilegales o no autorizados
+- No usar el lanzador para estafar, acosar, abusar o dañar a otros
+- No distribuir versiones modificadas del lanzador sin la atribución adecuada
+
+4. Uso de Cuentas y Servidores
+Al usar Bedrock Cosmos en entornos multijugador, usted reconoce que los administradores de servidores pueden tener sus propias reglas con respecto al contenido personalizado. No somos responsables de ninguna restricción o prohibición impuesta por servidores de terceros.
+
+5. Propiedad Intelectual
+Bedrock Cosmos es software de código abierto licenciado bajo los términos especificados en nuestro repositorio de GitHub. Si bien usted es libre de ver y modificar el código de acuerdo con los términos de la licencia, debe proporcionar la atribución adecuada al compartir o distribuir el software.
+
+Las capas personalizadas y otros contenidos creados por la comunidad siguen siendo propiedad de sus respectivos creadores. Minecraft, Minecraft Bedrock Edition y las marcas comerciales relacionadas son propiedad de Mojang Studios y Microsoft.
+
+6. Renuncia de Garantías
+Bedrock Cosmos se proporciona "tal cual" sin garantías de ningún tipo, ya sean expresas o implícitas. No garantizamos que el lanzador esté libre de errores, esté continuamente disponible o sea inmediatamente seguro en caso de que se encuentre una vulnerabilidad. El uso del lanzador es bajo su propio riesgo.
+
+7. Limitación de Responsabilidad
+En la máxima medida permitida por la ley, Bedrock Cosmos y sus desarrolladores no serán responsables de ningún daño indirecto, incidental, especial, consecuente o punitivo, ni de ninguna pérdida de ganancias o ingresos, ya sea incurrida directa o indirectamente, ni de ninguna pérdida de datos, uso, buena voluntad u otras pérdidas intangibles resultantes de:
+
+- Su uso o incapacidad para usar el lanzador
+- Cualquier acceso no autorizado a o uso de nuestros servicios y/o servidores
+- Cualquier error o vulnerabilidad encontrada en el lanzador
+- Cualquier error u omisión en la funcionalidad del lanzador
+- Cualquier acción tomada por Mojang Studios, Microsoft o administradores de servidores en respuesta a su uso del lanzador
+
+8. Servicios y Contenido de Terceros
+Bedrock Cosmos interactúa con servidores de Minecraft operados por Mojang Studios y Microsoft. No estamos afiliados, respaldados ni patrocinados por Mojang Studios o Microsoft. Cualquier problema con los servicios de Minecraft debe dirigirse a sus canales de soporte oficiales.
+
+9. Modificaciones al Servicio
+Nos reservamos el derecho de modificar, suspender o descontinuar Bedrock Cosmos en cualquier momento sin previo aviso. También podemos actualizar estos Términos de Servicio periódicamente. Su uso continuado del lanzador después de los cambios constituye la aceptación de los términos modificados.
+
+10. Contenido Generado por el Usuario
+Cuando envía diseños de capas personalizadas o paquetes de skins a través de nuestro servidor de Discord para su inclusión en Bedrock Cosmos, almacenaremos su archivo de capa junto con su nombre de usuario de Discord para la atribución del creador. Esto nos permite a nosotros y a otros usuarios identificar quién creó cada cosmético dentro de la aplicación.
+
+Al enviar capas personalizadas o paquetes de skins, nos otorga una licencia no exclusiva, mundial y libre de regalías para usar, mostrar y distribuir ese contenido dentro del lanzador y a otros usuarios de Bedrock Cosmos. Sus cosméticos enviados pueden convertirse en parte de la aplicación y serán atribuidos a su nombre de usuario de Discord.
+
+Usted declara que tiene el derecho de otorgar esta licencia y que sus diseños de capas/skins no infringen ningún derecho de terceros, incluidos derechos de autor, marcas comerciales u otros derechos de propiedad intelectual.
+
+Puede solicitar la eliminación de sus capas/skins enviadas en cualquier momento contactándonos a través de nuestro servidor de Discord. Al recibir su solicitud, eliminaremos su(s) cosmético(s) de nuestra base de datos y de la aplicación.
+
+11. Usos Prohibidos
+Usted acepta no usar Bedrock Cosmos para:
+
+- Violar cualquier ley local, estatal, nacional o internacional
+- Infringir o violar nuestros derechos de propiedad intelectual o los derechos de propiedad intelectual de otros
+- Cargar o transmitir virus o cualquier otro tipo de código malicioso
+- Intentar obtener acceso no autorizado a cualquier sistema o red
+- Participar en cualquier conducta que restrinja o inhiba el uso del lanzador por parte de cualquier persona
+- Hacerse pasar por Bedrock Cosmos, nuestros desarrolladores o cualquier otro usuario
+
+12. Restricciones de Edad
+Bedrock Cosmos está destinado a usuarios que cumplan con los requisitos de edad mínima para Minecraft Bedrock Edition en su jurisdicción. Si tiene menos de 13 años (o la edad aplicable en su jurisdicción), debe tener el consentimiento de sus padres para usar nuestros servicios.
+
+13. Privacidad
+Su uso de Bedrock Cosmos también se rige por nuestra Política de Privacidad. Por favor, revise nuestra Política de Privacidad para comprender nuestras prácticas de recopilación y uso de datos.
+
+14. Terminación
+Nos reservamos el derecho de terminar o suspender su acceso a Bedrock Cosmos de inmediato, sin previo aviso ni responsabilidad, por cualquier motivo, incluido el incumplimiento de estos Términos de Servicio.
+
+15. Ley Aplicable
+Estos Términos de Servicio se regirán e interpretarán de acuerdo con las leyes aplicables, sin tener en cuenta las disposiciones sobre conflicto de leyes.
+
+16. Indemnización
+Al usar Bedrock Cosmos, usted acepta indemnizar, defender y eximir de responsabilidad a los desarrolladores, contribuyentes y distribuidores del software de cualquier reclamación, daño, pérdida, responsabilidad y gasto (incluidos los honorarios legales) que surjan de:
+
+- Su uso o mal uso de este software
+- Su violación de los Términos de Servicio de Minecraft
+- Cualquier reclamación de que su uso infringe derechos de terceros
+- Cualquier modificación que realice al software
+
+17. Cumplimiento de DMCA y Eliminación de Contenido
+Si Mojang/Microsoft o cualquier representante autorizado cree que este software infringe sus derechos, comuníquese con nuestro equipo de personal al respecto a través de correo electrónico a contact@bedrock-cosmos.app o a través de nuestro servidor de Discord. También:
+
+- Responderemos de manera oportuna a las solicitudes válidas de eliminación de DMCA
+- Eliminaremos el contenido infractor si así lo exige la ley
+- Cooperaremos plenamente con los titulares de derechos
+
+18. Divisibilidad
+Si alguna disposición de estos Términos de Servicio se considera inaplicable o inválida, dicha disposición se limitará o eliminará en la medida mínima necesaria para que estos términos permanezcan en plena vigencia y efecto.
+
+19. Contáctenos
+Para preguntas sobre estos Términos de Servicio, contáctenos a través de nuestro servidor de Discord, por correo electrónico a contact@bedrock-cosmos.app, o a través de nuestro repositorio de GitHub.
+
+20. Reconocimiento
+Al usar Bedrock Cosmos, usted reconoce que ha leído, comprendido y acepta estar sujeto a estos Términos de Servicio.

@@ -1,0 +1,3 @@
+Multiple Langs: https://stackoverflow.com/questions/12594634/different-license-files-for-different-languages-in-inno-setup
+
+Multiple Files: https://stackoverflow.com/questions/34592002/how-to-create-two-licensefile-pages-in-inno-setup
