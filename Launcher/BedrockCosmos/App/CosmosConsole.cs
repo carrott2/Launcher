@@ -102,7 +102,7 @@ namespace BedrockCosmos.App
         {
             try
             {
-                string logsFolder = AppDomain.CurrentDomain.BaseDirectory + @"Logs\";
+                string logsFolder = PathDefinitions.CosmosAppData + @"Logs\";
 
                 if (!Directory.Exists(logsFolder))
                     Directory.CreateDirectory(logsFolder);

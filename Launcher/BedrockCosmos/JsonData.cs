@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.IO;
 using System.Collections.Generic;
+using BedrockCosmos.App;
 
 namespace BedrockCosmos
 {
@@ -11,7 +11,7 @@ namespace BedrockCosmos
         public static List<Endpoint> MainPages = null;
         public static List<MarketItem> MarketItems = null;
         public static List<MarketItem> PackSearchIds = null;
-        private static string jsonPath = AppDomain.CurrentDomain.BaseDirectory + @"Responses-main\LauncherJsons\";
+        private static string jsonPath = PathDefinitions.ResponsesDirectory + @"LauncherJsons\";
 
         public static void InitializeJsons()
         {

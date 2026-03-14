@@ -28,7 +28,6 @@ namespace BedrockCosmos.Proxy
 
         private ExplicitProxyEndPoint explicitEndPoint;
 
-        private string currentPathForResponse = AppDomain.CurrentDomain.BaseDirectory + @"Responses-main\";
         private string consoleSender = "Proxy";
 
         public ProxyController()
@@ -36,6 +35,7 @@ namespace BedrockCosmos.Proxy
             Task.Run(() => ListenToConsole());
 
             proxyServer = new ProxyServer();
+            proxyServer.CertificateManager.PfxFilePath = Path.Combine(PathDefinitions.CosmosAppData, "CosmosRootCert.pfx");
 
             proxyServer.ExceptionFunc = async exception =>
             {
@@ -219,7 +219,7 @@ namespace BedrockCosmos.Proxy
                 try
                 {
                     e.HttpClient.Response.StatusCode = 200; // Set to OK, otherwise stays at a not found error
-                    string localPath = currentPathForResponse + urlData.response;
+                    string localPath = PathDefinitions.ResponsesDirectory + urlData.response;
 
                     switch (currentUri)
                     {
@@ -312,7 +312,7 @@ namespace BedrockCosmos.Proxy
             if (mItem != null)
             {
                 userData.RequestLogs = userData.RequestLogs + $"└── Get Item: Found local Json for item {getItemBody.itemid}\n";
-                string localPath = currentPathForResponse + mItem.response;
+                string localPath = PathDefinitions.ResponsesDirectory + mItem.response;
                 SetResponseBodyFromFile(localPath, e);
             }
             else
@@ -337,7 +337,7 @@ namespace BedrockCosmos.Proxy
             if (mItem != null)
             {
                 userData.RequestLogs = userData.RequestLogs + $"└── Search: Found local Json for item {searchUuid}\n";
-                string localPath = currentPathForResponse + mItem.response;
+                string localPath = PathDefinitions.ResponsesDirectory + mItem.response;
                 SetResponseBodyFromFile(localPath, e);
             }
             else
@@ -368,11 +368,11 @@ namespace BedrockCosmos.Proxy
         {
             string responseBody = await e.GetResponseBodyAsString();
             // string location = "result.messages";
-            // string announcementPath = currentPathForResponse + @"News\LoginAnnouncement_append.json";
-            // string newsPath = currentPathForResponse + @"News\CurrentNews_append.json";
+            // string announcementPath = PathDefinitions.ResponsesDirectory + @"News\LoginAnnouncement_append.json";
+            // string newsPath = PathDefinitions.ResponsesDirectory + @"News\CurrentNews_append.json";
 
             NewsManager.RetrieveNewsHistory();
-            string newsTabDataPath = AppDomain.CurrentDomain.BaseDirectory + @"CustomJsons\news.json";
+            string newsTabDataPath = PathDefinitions.CustomJsonsDirectory + @"news.json";
 
             // Append front announcement
             //string appendedJson = JsonParser.AppendJsonToEnd(responseBody, announcementPath, location);

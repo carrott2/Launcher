@@ -15,7 +15,6 @@ namespace BedrockCosmos.App
         private Version _latestLauncherVersion = new Version("0.0.1");
         private int _currentResponsesVersion = 0;
         private int _latestResponsesVersion = 0;
-        private string _miscDirectory = AppDomain.CurrentDomain.BaseDirectory + @"Misc";
         private AsyncFileDownload _asyncDownload = null;
         private RoundGradientButton _launchButton = null;
         private System.Windows.Forms.Label _versionLabel = null;
@@ -69,7 +68,7 @@ namespace BedrockCosmos.App
                 _versionLabel.Text = $"v{_currentLauncherVersion}";
 
             // Responses
-            string savedResponseVersionPath = _miscDirectory + @"\ResponsesVersion.txt";
+            string savedResponseVersionPath = PathDefinitions.MiscDirectory + @"ResponsesVersion.txt";
             string fileContent = "";
 
             if (File.Exists(savedResponseVersionPath))
@@ -82,10 +81,10 @@ namespace BedrockCosmos.App
         internal async Task InternetCheck()
         {
             string fileUrl = "https://raw.githubusercontent.com/Bedrock-Cosmos/Backend/main/CurrentVersion.json";
-            string downloadPath = _miscDirectory + @"\CurrentVersion.json";
+            string downloadPath = PathDefinitions.MiscDirectory + @"CurrentVersion.json";
 
-            if (!Directory.Exists(_miscDirectory))
-                Directory.CreateDirectory(_miscDirectory);
+            if (!Directory.Exists(PathDefinitions.MiscDirectory))
+                Directory.CreateDirectory(PathDefinitions.MiscDirectory);
 
             if (File.Exists(downloadPath))
                 File.Delete(downloadPath);
@@ -102,8 +101,8 @@ namespace BedrockCosmos.App
 
         internal void SetLatestVersions()
         {
-            string versionJsonPath = _miscDirectory + @"\CurrentVersion.json";
-            string savedResponseVersionPath = _miscDirectory + @"\ResponsesVersion.txt";
+            string versionJsonPath = PathDefinitions.MiscDirectory + @"CurrentVersion.json";
+            string savedResponseVersionPath = PathDefinitions.MiscDirectory + @"ResponsesVersion.txt";
             AppVersions ver = null;
 
             if (File.Exists(versionJsonPath))
@@ -132,7 +131,7 @@ namespace BedrockCosmos.App
         internal bool CheckResponsesUpdate()
         {
             if (_latestResponsesVersion > _currentResponsesVersion || 
-                !Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + @"Responses-main"))
+                !Directory.Exists(PathDefinitions.CosmosAppData + @"Responses-main"))
             {
                 CosmosConsole.WriteLine($"Responses update found (v{_latestResponsesVersion}).");
                 return true;
@@ -147,8 +146,8 @@ namespace BedrockCosmos.App
         internal async Task UpdateResponses()
         {
             string fileUrl = "https://github.com/Bedrock-Cosmos/Responses/archive/refs/heads/main.zip";
-            string downloadPath = AppDomain.CurrentDomain.BaseDirectory + @"main.zip";
-            string extractPath = AppDomain.CurrentDomain.BaseDirectory;
+            string downloadPath = PathDefinitions.CosmosAppData + @"main.zip";
+            string extractPath = PathDefinitions.CosmosAppData;
 
             if (_launchButton != null)
                 UpdateLaunchButtonText(LanguageHandler.Home_LaunchButton_Updating);
@@ -157,7 +156,7 @@ namespace BedrockCosmos.App
             {
                 await _asyncDownload.DownloadFileAsync(fileUrl, downloadPath);
                 await _asyncDownload.ExtractFileAsync(downloadPath, extractPath, true);
-                File.WriteAllText(_miscDirectory + @"\ResponsesVersion.txt", _latestResponsesVersion.ToString());
+                File.WriteAllText(PathDefinitions.MiscDirectory + @"ResponsesVersion.txt", _latestResponsesVersion.ToString());
                 _currentResponsesVersion = _latestResponsesVersion;
             }
             catch (Exception)

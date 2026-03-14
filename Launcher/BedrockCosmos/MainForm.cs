@@ -22,6 +22,10 @@ namespace BedrockCosmos
         public MainForm()
         {
             InitializeComponent();
+
+            if (!Directory.Exists(PathDefinitions.CosmosAppData))
+                Directory.CreateDirectory(PathDefinitions.CosmosAppData);
+
             CosmosConsole.Initialize(DevConsole);
             DiscordRichPresence.InitializeRpc();
             DiscordRichPresence.UpdatePresence();
@@ -36,11 +40,55 @@ namespace BedrockCosmos
             launchManager.InitializeMgrLaunchButton(LaunchButton);
             launchManager.InitializeMgrVersionLabel(VersionLabel);
             launchManager.SetCurrentVersions();
-            
 
-            LanguageHandler.Load(AppDomain.CurrentDomain.BaseDirectory + @"Texts\" + SettingsManager.Language + ".lang");
+            LanguageHandler.Load(PathDefinitions.AppDirectory + @"Texts\" + SettingsManager.Language + ".lang");
             SettingsManager.LoadSettings();
             ApplySettings();
+        }
+
+        public void HandleIncomingArgs(string[] args)
+        {
+            foreach (var arg in args)
+            {
+                if (string.IsNullOrWhiteSpace(arg)) continue;
+
+                if (arg.StartsWith("bedrockcosmos://", StringComparison.OrdinalIgnoreCase))
+                    HandleUri(arg);
+                else if (arg.EndsWith(".bcpack", StringComparison.OrdinalIgnoreCase))
+                    HandleBcPackFile(arg);
+                else if (arg.EndsWith(".bcpersona", StringComparison.OrdinalIgnoreCase))
+                    HandleBcPersonaFile(arg);
+            }
+        }
+
+        private void HandleUri(string uri)
+        {
+            // For bedrockcosmos:// URIs
+            string data = uri.Substring("bedrockcosmos://".Length);
+            if (data.EndsWith("/"))
+                data = data.Remove(data.Length - 1);
+
+            StatusLabel.Text = data.ToString() + " was loaded (URI)!";
+        }
+
+        private void HandleBcPackFile(string filePath)
+        {
+            // For .bcpack files
+            MessageBox.Show(
+                "Support for BCPack files is coming soon!",
+                Path.GetFileName(filePath),
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+        }
+
+        private void HandleBcPersonaFile(string filePath)
+        {
+            // For .bcpersona files
+            MessageBox.Show(
+                "Support for BCPersona files is coming soon!",
+                Path.GetFileName(filePath),
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
         }
 
         private void ApplySettings()
@@ -142,7 +190,7 @@ namespace BedrockCosmos
                 launchManager.UpdateLaunchButtonColor("purple");
                 await launchManager.InternetCheck();
 
-                if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + @"Misc\CurrentVersion.json"))
+                if (File.Exists(PathDefinitions.MiscDirectory + @"CurrentVersion.json"))
                 {
                     launchManager.SetLatestVersions();
                     bool updateLauncher = launchManager.CheckLauncherUpdate();
@@ -277,7 +325,7 @@ namespace BedrockCosmos
                 {
                     await launchManager.InternetCheck();
 
-                    if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + @"Misc\CurrentVersion.json"))
+                    if (File.Exists(PathDefinitions.MiscDirectory + @"CurrentVersion.json"))
                     {
                         launchManager.SetLatestVersions();
                         bool updateLauncher = launchManager.CheckLauncherUpdate();
@@ -336,7 +384,7 @@ namespace BedrockCosmos
             string langFile = LanguageHandler.GetLangFileName(selectedLanguage);
             SettingsManager.Language = langFile;
 
-            LanguageHandler.Load(AppDomain.CurrentDomain.BaseDirectory + @"Texts\" + langFile + ".lang");
+            LanguageHandler.Load(PathDefinitions.AppDirectory + @"Texts\" + langFile + ".lang");
             UpdateLauncherLanguage();
             CosmosConsole.WriteLine($"Language set to {selectedLanguage}.");
         }
@@ -375,8 +423,8 @@ namespace BedrockCosmos
         private async void DownloadZipButton_Click(object sender, EventArgs e)
         {
             string fileUrl = "https://github.com/Bedrock-Cosmos/Responses/archive/refs/heads/main.zip";
-            string downloadPath = AppDomain.CurrentDomain.BaseDirectory + @"main.zip";
-            string extractPath = AppDomain.CurrentDomain.BaseDirectory;
+            string downloadPath = PathDefinitions.AppDataDirectory + @"main.zip";
+            string extractPath = PathDefinitions.AppDataDirectory;
 
             DownloadZipButton.Enabled = false;
             DownloadZipProgressLabel.Visible = true;
@@ -473,8 +521,8 @@ namespace BedrockCosmos
         private async void UpdateButton_Click(object sender, EventArgs e)
         {
             string fileUrl = "https://raw.githubusercontent.com/Bedrock-Cosmos/Launcher/main/LauncherFiles/Updater.zip";
-            string downloadPath = AppDomain.CurrentDomain.BaseDirectory + @"Updater.zip";
-            string extractPath = AppDomain.CurrentDomain.BaseDirectory;
+            string downloadPath = PathDefinitions.AppDataDirectory + @"Updater.zip";
+            string extractPath = PathDefinitions.AppDataDirectory;
 
             UpdateButton.Enabled = false;
             CancelUpdateButton.Enabled = false;

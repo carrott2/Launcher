@@ -1,7 +1,6 @@
 ﻿using BedrockCosmos.App;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -15,10 +14,8 @@ namespace BedrockCosmos
         private static int _cosmosUnreadNewsCount = 0;
         private static int _cosmosNewsCount = 0;
 
-        private static string _newsDirectory = AppDomain.CurrentDomain.BaseDirectory + @"CustomJsons";
-        private static string _newsHistoryPath = _newsDirectory + @"\News.json";
-        private static string _receivedNewsPath = _newsDirectory + @"\ReceivedNews.json";
-        private static string _currentResponsePath = AppDomain.CurrentDomain.BaseDirectory + @"Responses-main\";
+        private static string _newsHistoryPath = PathDefinitions.CustomJsonsDirectory + @"News.json";
+        private static string _receivedNewsPath = PathDefinitions.CustomJsonsDirectory + @"ReceivedNews.json";
 
         internal static string NewsHistory
         {
@@ -66,8 +63,8 @@ namespace BedrockCosmos
 
         internal static void RetrieveNewsHistory()
         {
-            if (!Directory.Exists(_newsDirectory))
-                Directory.CreateDirectory(_newsDirectory);
+            if (!Directory.Exists(PathDefinitions.CustomJsonsDirectory))
+                Directory.CreateDirectory(PathDefinitions.CustomJsonsDirectory);
 
             if (!File.Exists(_newsHistoryPath))
                 CreateNewsHistoryFile();
@@ -81,7 +78,7 @@ namespace BedrockCosmos
 
         internal static void RetrieveCurrentNews()
         {
-            string currentNewsPath = _currentResponsePath + @"News\CurrentNews_append.json";
+            string currentNewsPath = PathDefinitions.ResponsesDirectory + @"News\CurrentNews_append.json";
 
             if (File.Exists(currentNewsPath))
             {

@@ -91,7 +91,7 @@ namespace BedrockCosmos.App
 
         internal static void SaveSettings()
         {
-            string settingsFile = AppDomain.CurrentDomain.BaseDirectory + @"settings.json";
+            string settingsFile = PathDefinitions.CosmosAppData + @"Settings.json";
             var savedSettings = new
             {
                 BackgroundMode = _backgroundMode,
@@ -109,7 +109,7 @@ namespace BedrockCosmos.App
 
         internal static void LoadSettings()
         {
-            string settingsFile = AppDomain.CurrentDomain.BaseDirectory + @"settings.json";
+            string settingsFile = PathDefinitions.CosmosAppData + @"Settings.json";
 
             if (File.Exists(settingsFile))
             {

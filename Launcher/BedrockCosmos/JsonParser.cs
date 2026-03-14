@@ -53,7 +53,7 @@ namespace BedrockCosmos
             }
             else
             {
-                CosmosConsole.WriteLine(consoleSender, "File not found: {jsonToAppendPath}");
+                CosmosConsole.WriteLine(consoleSender, $"File not found: {jsonToAppendPath}");
                 return string.Empty;
             }
         }
