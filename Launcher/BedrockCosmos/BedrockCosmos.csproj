@@ -170,6 +170,7 @@
     <Compile Include="NewsManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxy\CertificateStorage.cs" />
     <Compile Include="Proxy\ProxyUrlDefinitions.cs" />
     <Compile Include="Proxy\ProxyEventArgsBaseExtensions.cs" />
     <Compile Include="Proxy\ProxyController.cs" />

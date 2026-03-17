@@ -207,6 +207,7 @@ namespace BedrockCosmos
                             await launchManager.UpdateResponses();
 
                         JsonData.InitializeJsons();
+                        SettingsManager.ProxyStarted = true;
 
                         await Task.Run(() =>
                         {
@@ -215,8 +216,6 @@ namespace BedrockCosmos
 
                         LaunchButton.Text = LanguageHandler.Home_LaunchButton_Running;
                         CosmosConsole.WriteLine("Proxy started!");
-
-                        SettingsManager.ProxyStarted = true;
                         launchManager.OpenMinecraft();
                     }
                 }
@@ -344,17 +343,16 @@ namespace BedrockCosmos
                                 await launchManager.UpdateResponses();
 
                             JsonData.InitializeJsons();
+                            SettingsManager.ProxyStarted = true;
 
                             await Task.Run(() =>
                             {
                                 controller.StartProxy();
                             });
 
-                            LaunchButton.Text = LanguageHandler.Home_LaunchButton_Listening;
                             CosmosConsole.WriteLine("Proxy started!");
-
-                            SettingsManager.ProxyStarted = true;
                             launchManager.UpdateLaunchButtonColor("purple");
+                            LaunchButton.Text = LanguageHandler.Home_LaunchButton_Listening;
                             StatusLabel.Text = LanguageHandler.Home_StatusLabel_ProxyEnabled;
                         }
                     }

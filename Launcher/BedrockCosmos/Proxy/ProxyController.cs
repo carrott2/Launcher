@@ -20,14 +20,10 @@ namespace BedrockCosmos.Proxy
     public class ProxyController : IDisposable
     {
         private readonly ProxyServer proxyServer;
-
         private readonly CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
-
         private readonly ConcurrentQueue<Tuple<string, string>> consoleMessageQueue
             = new ConcurrentQueue<Tuple<string, string>>();
-
         private ExplicitProxyEndPoint explicitEndPoint;
-
         private string consoleSender = "Proxy";
 
         public ProxyController()
@@ -35,7 +31,8 @@ namespace BedrockCosmos.Proxy
             Task.Run(() => ListenToConsole());
 
             proxyServer = new ProxyServer();
-            proxyServer.CertificateManager.PfxFilePath = Path.Combine(PathDefinitions.CosmosAppData, "CosmosRootCert.pfx");
+            proxyServer.CertificateManager.PfxFilePath = Path.Combine(PathDefinitions.CosmosAppData, @"CosmosRootCert.pfx");
+            proxyServer.CertificateManager.CertificateStorage = new CertificateStorage(PathDefinitions.CosmosAppData);
 
             proxyServer.ExceptionFunc = async exception =>
             {

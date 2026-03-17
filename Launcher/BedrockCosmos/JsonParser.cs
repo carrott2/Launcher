@@ -1,6 +1,5 @@
 ﻿using BedrockCosmos.App;
 using Newtonsoft.Json.Linq;
-using System;
 using System.IO;
 using System.Text.RegularExpressions;
 
@@ -88,7 +87,7 @@ namespace BedrockCosmos
 
         internal static string AppendJsonToSkinPackMenu(string originalJsonContent, string jsonToAppendPath, string appendLocation)
         {
-            string dividerPath = AppDomain.CurrentDomain.BaseDirectory + @"Responses-main\MainPages\VerticalLineDivider_append.json";
+            string dividerPath = PathDefinitions.ResponsesDirectory + @"MainPages\VerticalLineDivider_append.json";
 
             if (File.Exists(jsonToAppendPath))
             {
