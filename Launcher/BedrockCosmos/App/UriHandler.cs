@@ -12,7 +12,7 @@ internal static class UriHandler
         try
         {
             // Expected formats:
-            // bedrockcosmos://?showStoreOffer=UUID
+            // bedrockcosmos://openStore?showStoreOffer=UUID
             // bedrockcosmos://showDressingRoomOffer?offerID=UUID
             // bedrockcosmos://showDressingRoomOffer?offerID=UUID/?creator=CreatorName
 
@@ -29,12 +29,18 @@ internal static class UriHandler
 
             CosmosConsole.WriteLine($"Opened URI path: {path}");
 
-            // ?showStoreOffer=UUID
-            if (path.StartsWith("?showStoreOffer=", StringComparison.OrdinalIgnoreCase))
+            // openStore?showStoreOffer=UUID
+            if (path.StartsWith("openStore", StringComparison.OrdinalIgnoreCase))
             {
-                string uuid = path.Substring("?showStoreOffer=".Length).Trim();
+                string uuid = "";
+
+                if (path.StartsWith("openStore?showStoreOffer=", StringComparison.OrdinalIgnoreCase))
+                    uuid = path.Substring("openStore?showStoreOffer=".Length).Trim();
+                else if (path.StartsWith("openStore/?showStoreOffer=", StringComparison.OrdinalIgnoreCase))
+                    uuid = path.Substring("openStore/?showStoreOffer=".Length).Trim();
+
                 if (!string.IsNullOrEmpty(uuid))
-                    return $"?showStoreOffer={uuid}";
+                    return $"openStore?showStoreOffer={uuid}";
                 else
                     return "";
             }
