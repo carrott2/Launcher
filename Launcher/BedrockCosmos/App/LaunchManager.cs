@@ -1,5 +1,4 @@
 ﻿using BedrockCosmos.App.UI;
-using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -7,12 +6,22 @@ using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
 
+// =============================================================================
+// Bedrock Cosmos - Copyright (c) 2026
+//
+// This file is part of Bedrock Cosmos, licensed under the MIT License.
+// You must read and agree to the terms of the MIT License before using,
+// copying, modifying, or distributing this code.
+//
+// MIT License - Full terms: https://opensource.org/licenses/MIT
+// =============================================================================
+
 namespace BedrockCosmos.App
 {
     internal class LaunchManager
     {
-        private Version _currentLauncherVersion = new Version("0.0.1");
-        private Version _latestLauncherVersion = new Version("0.0.1");
+        private Version _currentLauncherVersion = new Version("0.0.0.0");
+        private Version _latestLauncherVersion = new Version("0.0.0.0");
         private int _currentResponsesVersion = 0;
         private int _latestResponsesVersion = 0;
         private AsyncFileDownload _asyncDownload = null;
@@ -61,11 +70,10 @@ namespace BedrockCosmos.App
         internal void SetCurrentVersions()
         {
             // Launcher
-            Version version = Assembly.GetExecutingAssembly().GetName().Version;
-            _currentLauncherVersion = new Version(version.Major + "." + version.Minor + "." + version.Build);
+            _currentLauncherVersion = Assembly.GetExecutingAssembly().GetName().Version;
 
             if (_versionLabel != null)
-                _versionLabel.Text = $"v{_currentLauncherVersion}";
+                _versionLabel.Text = $"v{_currentLauncherVersion.Major + "." + _currentLauncherVersion.Minor + "." + _currentLauncherVersion.Build}";
 
             // Responses
             string savedResponseVersionPath = PathDefinitions.MiscDirectory + @"ResponsesVersion.txt";
@@ -80,37 +88,21 @@ namespace BedrockCosmos.App
 
         internal async Task InternetCheck()
         {
-            string fileUrl = "https://raw.githubusercontent.com/Bedrock-Cosmos/Backend/main/CurrentVersion.json";
-            string downloadPath = PathDefinitions.MiscDirectory + @"CurrentVersion.json";
+            string version = "";
+            string responsesVersion = "";
 
             if (!Directory.Exists(PathDefinitions.MiscDirectory))
                 Directory.CreateDirectory(PathDefinitions.MiscDirectory);
 
-            if (File.Exists(downloadPath))
-                File.Delete(downloadPath);
-
             try
             {
-                await _asyncDownload.DownloadFileAsync(fileUrl, downloadPath);
+                (version, responsesVersion) = await _asyncDownload.ReadVersionFileAsync();
+                _latestLauncherVersion = new Version(version);
+                _latestResponsesVersion = int.Parse(responsesVersion);
             }
             catch (Exception)
             {
                 CosmosConsole.WriteLine("Unable to download file. Download canceled.");
-            }
-        }
-
-        internal void SetLatestVersions()
-        {
-            string versionJsonPath = PathDefinitions.MiscDirectory + @"CurrentVersion.json";
-            string savedResponseVersionPath = PathDefinitions.MiscDirectory + @"ResponsesVersion.txt";
-            AppVersions ver = null;
-
-            if (File.Exists(versionJsonPath))
-            {
-                string json = File.ReadAllText(versionJsonPath);
-                ver = JsonConvert.DeserializeObject<AppVersions>(json);
-                _latestLauncherVersion = new Version(ver.launcherVersion);
-                _latestResponsesVersion = ver.responsesVersion;
             }
         }
 
@@ -130,8 +122,7 @@ namespace BedrockCosmos.App
 
         internal bool CheckResponsesUpdate()
         {
-            if (_latestResponsesVersion > _currentResponsesVersion || 
-                !Directory.Exists(PathDefinitions.ResponsesDirectory))
+            if (_latestResponsesVersion > _currentResponsesVersion)
             {
                 CosmosConsole.WriteLine($"Responses update found (v{_latestResponsesVersion}).");
                 return true;
@@ -145,7 +136,8 @@ namespace BedrockCosmos.App
 
         internal async Task UpdateResponses()
         {
-            string fileUrl = "https://github.com/Bedrock-Cosmos/Responses/archive/refs/heads/main.zip";
+            string latestResponsesVersionStr = _latestResponsesVersion.ToString();
+            string fileUrl = "https://github.com/Bedrock-Cosmos/Responses/archive/refs/tags/" + latestResponsesVersionStr + ".zip";
             string downloadPath = PathDefinitions.CosmosAppData + @"main.zip";
             string extractPath = PathDefinitions.CosmosAppData;
 
@@ -156,7 +148,8 @@ namespace BedrockCosmos.App
             {
                 await _asyncDownload.DownloadFileAsync(fileUrl, downloadPath);
                 await _asyncDownload.ExtractFileAsync(downloadPath, extractPath, true);
-                File.WriteAllText(PathDefinitions.MiscDirectory + @"ResponsesVersion.txt", _latestResponsesVersion.ToString());
+                Directory.Move(PathDefinitions.CosmosAppData + "Responses-" + latestResponsesVersionStr, PathDefinitions.ResponsesDirectory);
+                File.WriteAllText(PathDefinitions.MiscDirectory + @"ResponsesVersion.txt", latestResponsesVersionStr);
                 _currentResponsesVersion = _latestResponsesVersion;
             }
             catch (Exception)

@@ -4,6 +4,16 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
+// =============================================================================
+// Bedrock Cosmos - Copyright (c) 2026
+//
+// This file is part of Bedrock Cosmos, licensed under the MIT License.
+// You must read and agree to the terms of the MIT License before using,
+// copying, modifying, or distributing this code.
+//
+// MIT License - Full terms: https://opensource.org/licenses/MIT
+// =============================================================================
+
 namespace BedrockCosmos.App
 {
     internal static class CosmosConsole
@@ -108,7 +118,7 @@ namespace BedrockCosmos.App
                     Directory.CreateDirectory(logsFolder);
 
                 int fileCount = Directory.GetFiles(logsFolder).Length;
-                string logPath = logsFolder + @"\log" + fileCount.ToString() + ".txt";
+                string logPath = logsFolder + @"\Log" + fileCount.ToString() + ".txt";
 
                 File.WriteAllText(logPath, _console.Text);
                 WriteLine("App", $"Exported log to {logPath}");

@@ -1,4 +1,5 @@
-﻿using BedrockCosmos.App;
+﻿using AutoUpdaterDotNET;
+using BedrockCosmos.App;
 using BedrockCosmos.Proxy;
 using System;
 using System.Diagnostics;
@@ -6,6 +7,16 @@ using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+// =============================================================================
+// Bedrock Cosmos - Copyright (c) 2026
+//
+// This file is part of Bedrock Cosmos, licensed under the MIT License.
+// You must read and agree to the terms of the MIT License before using,
+// copying, modifying, or distributing this code.
+//
+// MIT License - Full terms: https://opensource.org/licenses/MIT
+// =============================================================================
 
 namespace BedrockCosmos
 {
@@ -148,7 +159,14 @@ namespace BedrockCosmos
                 }
             }
 
-            asyncDownload.Dispose();
+            try
+            {
+                asyncDownload.Dispose();
+            }
+            catch
+            {
+
+            }
         }
 
         private void TrayIcon_Click(object sender, EventArgs e)
@@ -190,9 +208,8 @@ namespace BedrockCosmos
                 launchManager.UpdateLaunchButtonColor("purple");
                 await launchManager.InternetCheck();
 
-                if (File.Exists(PathDefinitions.MiscDirectory + @"CurrentVersion.json"))
+                if (launchManager.LatestLauncherVersion > new Version("0.0.0.0"))
                 {
-                    launchManager.SetLatestVersions();
                     bool updateLauncher = launchManager.CheckLauncherUpdate();
 
                     if (updateLauncher && !SettingsManager.LauncherUpdatePrompted)
@@ -203,7 +220,8 @@ namespace BedrockCosmos
                     }
                     else
                     {
-                        if (launchManager.CheckResponsesUpdate() && !updateLauncher)
+                        if (launchManager.CheckResponsesUpdate() && !updateLauncher ||
+                            !Directory.Exists(PathDefinitions.ResponsesDirectory))
                             await launchManager.UpdateResponses();
 
                         JsonData.InitializeJsons();
@@ -324,9 +342,8 @@ namespace BedrockCosmos
                 {
                     await launchManager.InternetCheck();
 
-                    if (File.Exists(PathDefinitions.MiscDirectory + @"CurrentVersion.json"))
+                    if (launchManager.LatestLauncherVersion > new Version("0.0.0.0"))
                     {
-                        launchManager.SetLatestVersions();
                         bool updateLauncher = launchManager.CheckLauncherUpdate();
 
                         if (updateLauncher && !SettingsManager.LauncherUpdatePrompted)
@@ -337,9 +354,10 @@ namespace BedrockCosmos
                             WindowState = FormWindowState.Normal;
                             TrayIcon.Visible = false;
                         }
-                        else
+                        else if (TabControl.SelectedTab != UpdatePage)
                         {
-                            if (launchManager.CheckResponsesUpdate() && !updateLauncher)
+                            if (launchManager.CheckResponsesUpdate() && !updateLauncher ||
+                                !Directory.Exists(PathDefinitions.ResponsesDirectory))
                                 await launchManager.UpdateResponses();
 
                             JsonData.InitializeJsons();
@@ -421,8 +439,8 @@ namespace BedrockCosmos
         private async void DownloadZipButton_Click(object sender, EventArgs e)
         {
             string fileUrl = "https://github.com/Bedrock-Cosmos/Responses/archive/refs/heads/main.zip";
-            string downloadPath = PathDefinitions.AppDataDirectory + @"main.zip";
-            string extractPath = PathDefinitions.AppDataDirectory;
+            string downloadPath = PathDefinitions.CosmosAppData + @"main.zip";
+            string extractPath = PathDefinitions.CosmosAppData;
 
             DownloadZipButton.Enabled = false;
             DownloadZipProgressLabel.Visible = true;
@@ -435,6 +453,7 @@ namespace BedrockCosmos
                 DownloadZipProgressLabel.Text = "Extracting...";
                 await asyncDownload.ExtractFileAsync(downloadPath, extractPath, true);
 
+                Directory.Move(PathDefinitions.CosmosAppData + "Responses-main", PathDefinitions.ResponsesDirectory);
                 DownloadZipButton.Enabled = true;
                 DownloadZipProgressLabel.Text = "Done!";
             }
@@ -518,33 +537,29 @@ namespace BedrockCosmos
 
         private async void UpdateButton_Click(object sender, EventArgs e)
         {
-            string fileUrl = "https://raw.githubusercontent.com/Bedrock-Cosmos/Launcher/main/LauncherFiles/Updater.zip";
-            string downloadPath = PathDefinitions.AppDataDirectory + @"Updater.zip";
-            string extractPath = PathDefinitions.AppDataDirectory;
-
             UpdateButton.Enabled = false;
             CancelUpdateButton.Enabled = false;
-            CloseButton.Enabled = false;
+            if (SettingsManager.BackgroundMode)
+                BackgroundModeTimer.Stop();
 
             try
             {
-                await asyncDownload.DownloadFileAsync(fileUrl, downloadPath);
-                await asyncDownload.ExtractFileAsync(downloadPath, extractPath, true);
-
-                if (File.Exists(extractPath + "Updater.exe"))
-                    Process.Start(extractPath + "Updater.exe");
-
-                Close();
+                //AutoUpdater.ReportErrors = true;
+                AutoUpdater.Mandatory = true;
+                AutoUpdater.UpdateMode = Mode.ForcedDownload;
+                AutoUpdater.Start("https://raw.githubusercontent.com/Bedrock-Cosmos/Website/refs/heads/main/CurrentVersion.xml");
             }
             catch (Exception)
             {
                 StatusLabel.Text = LanguageHandler.Home_StatusLabel_NoInternet;
                 TabControl.SelectedTab = HomePage;
-                
+
+                SettingsManager.LauncherUpdatePrompted = false;
                 UpdateButton.Enabled = true;
                 CancelUpdateButton.Enabled = true;
                 CloseButton.Enabled = true;
-                SettingsManager.LauncherUpdatePrompted = false;
+                if (SettingsManager.BackgroundMode)
+                    BackgroundModeTimer.Start();
             }
         }
 

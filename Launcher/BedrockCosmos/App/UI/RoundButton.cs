@@ -4,7 +4,9 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-// Based off of Night Button from ReaLTaiizor
+// Built off of Night Button from ReaLTaiizor to work with .NET 4.7.2
+// https://github.com/Taiizor/ReaLTaiizor
+
 namespace BedrockCosmos.App.UI
 {
     public class RoundButton : Control, IButtonControl

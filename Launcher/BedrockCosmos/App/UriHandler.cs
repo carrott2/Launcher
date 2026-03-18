@@ -2,8 +2,17 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Diagnostics;
 using System.IO;
+
+// =============================================================================
+// Bedrock Cosmos - Copyright (c) 2026
+//
+// This file is part of Bedrock Cosmos, licensed under the MIT License.
+// You must read and agree to the terms of the MIT License before using,
+// copying, modifying, or distributing this code.
+//
+// MIT License - Full terms: https://opensource.org/licenses/MIT
+// =============================================================================
 
 internal static class UriHandler
 {
@@ -40,7 +49,7 @@ internal static class UriHandler
                     uuid = path.Substring("openStore/?showStoreOffer=".Length).Trim();
 
                 if (!string.IsNullOrEmpty(uuid))
-                    return $"openStore?showStoreOffer={uuid}";
+                    return $"showStoreOffer={uuid}"; // Removed openStore for now since it was causing some issues
                 else
                     return "";
             }

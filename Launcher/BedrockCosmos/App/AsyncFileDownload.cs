@@ -2,6 +2,17 @@
 using System.IO.Compression;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+
+// =============================================================================
+// Bedrock Cosmos - Copyright (c) 2026
+//
+// This file is part of Bedrock Cosmos, licensed under the MIT License.
+// You must read and agree to the terms of the MIT License before using,
+// copying, modifying, or distributing this code.
+//
+// MIT License - Full terms: https://opensource.org/licenses/MIT
+// =============================================================================
 
 namespace BedrockCosmos.App
 {
@@ -67,6 +78,17 @@ namespace BedrockCosmos.App
 
             CosmosConsole.WriteLine($"Successfully extracted {Path.GetFileName(zipFilePath)} to " +
                 $"{extractPath}");
+        }
+
+        internal async Task<(string version, string responsesVersion)> ReadVersionFileAsync()
+        {
+            string xml = await httpClient.GetStringAsync("https://raw.githubusercontent.com/Bedrock-Cosmos/Website/refs/heads/main/CurrentVersion.xml");
+
+            XDocument doc = XDocument.Parse(xml);
+
+            string version = doc.Root.Element("version").Value;
+            string responsesVersion = doc.Root.Element("responses_version").Value;
+            return (version, responsesVersion);
         }
 
         internal void Dispose()

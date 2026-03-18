@@ -36,7 +36,6 @@
             this.VersionLabel = new System.Windows.Forms.Label();
             this.AboutButton = new System.Windows.Forms.Button();
             this.SettingsButton = new System.Windows.Forms.Button();
-            this.LaunchButton = new BedrockCosmos.App.UI.RoundGradientButton();
             this.AboutPage = new System.Windows.Forms.TabPage();
             this.WebsiteLabel = new System.Windows.Forms.LinkLabel();
             this.WebsiteIcon = new System.Windows.Forms.PictureBox();
@@ -49,30 +48,18 @@
             this.SettingsPage = new System.Windows.Forms.TabPage();
             this.LanguageDescriptionLabel = new System.Windows.Forms.Label();
             this.LanguageTitleLabel = new System.Windows.Forms.Label();
-            this.LanguageComboBox = new BedrockCosmos.App.UI.GradientComboBox();
             this.SettingsBackButton = new System.Windows.Forms.Button();
             this.BackgroundModeDescriptionLabel = new System.Windows.Forms.Label();
             this.BackgroundModeTitleLabel = new System.Windows.Forms.Label();
-            this.BackgroundModeSwitch = new BedrockCosmos.App.UI.Switch();
             this.UpdatePage = new System.Windows.Forms.TabPage();
             this.ChangelogLabel = new System.Windows.Forms.LinkLabel();
-            this.CancelUpdateButton = new BedrockCosmos.App.UI.RoundButton();
             this.UpdateLabel = new System.Windows.Forms.Label();
-            this.UpdateButton = new BedrockCosmos.App.UI.RoundButton();
             this.DevPage = new System.Windows.Forms.TabPage();
             this.DetailedLoggingLabel = new System.Windows.Forms.Label();
-            this.DetailedLoggingSwitch = new BedrockCosmos.App.UI.Switch();
-            this.FixProxyHangButton = new BedrockCosmos.App.UI.RoundButton();
-            this.ResetNewsButton = new BedrockCosmos.App.UI.RoundButton();
             this.DevBackButton = new System.Windows.Forms.Button();
             this.DevConsole = new System.Windows.Forms.RichTextBox();
             this.EnableLoggingLabel = new System.Windows.Forms.Label();
             this.DownloadZipProgressLabel = new System.Windows.Forms.Label();
-            this.DisableDevMenuButton = new BedrockCosmos.App.UI.RoundButton();
-            this.ClearLogsButton = new BedrockCosmos.App.UI.RoundButton();
-            this.EnableLoggingSwitch = new BedrockCosmos.App.UI.Switch();
-            this.DownloadZipButton = new BedrockCosmos.App.UI.RoundButton();
-            this.ExportLogsButton = new BedrockCosmos.App.UI.RoundButton();
             this.TopPanel = new System.Windows.Forms.Panel();
             this.AppIcon = new System.Windows.Forms.PictureBox();
             this.TopLabel = new System.Windows.Forms.Label();
@@ -80,6 +67,19 @@
             this.CloseButton = new System.Windows.Forms.Button();
             this.TrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.BackgroundModeTimer = new System.Windows.Forms.Timer(this.components);
+            this.LaunchButton = new BedrockCosmos.App.UI.RoundGradientButton();
+            this.LanguageComboBox = new BedrockCosmos.App.UI.GradientComboBox();
+            this.BackgroundModeSwitch = new BedrockCosmos.App.UI.Switch();
+            this.CancelUpdateButton = new BedrockCosmos.App.UI.RoundButton();
+            this.UpdateButton = new BedrockCosmos.App.UI.RoundButton();
+            this.DetailedLoggingSwitch = new BedrockCosmos.App.UI.Switch();
+            this.FixProxyHangButton = new BedrockCosmos.App.UI.RoundButton();
+            this.ResetNewsButton = new BedrockCosmos.App.UI.RoundButton();
+            this.DisableDevMenuButton = new BedrockCosmos.App.UI.RoundButton();
+            this.ClearLogsButton = new BedrockCosmos.App.UI.RoundButton();
+            this.EnableLoggingSwitch = new BedrockCosmos.App.UI.Switch();
+            this.DownloadZipButton = new BedrockCosmos.App.UI.RoundButton();
+            this.ExportLogsButton = new BedrockCosmos.App.UI.RoundButton();
             this.TabControl.SuspendLayout();
             this.HomePage.SuspendLayout();
             this.AboutPage.SuspendLayout();
@@ -179,33 +179,6 @@
             this.SettingsButton.TabIndex = 16;
             this.SettingsButton.UseVisualStyleBackColor = true;
             this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
-            // 
-            // LaunchButton
-            // 
-            this.LaunchButton.BackColor = System.Drawing.Color.Transparent;
-            this.LaunchButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LaunchButton.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.LaunchButton.FilledBackColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(47)))));
-            this.LaunchButton.FilledBackColorTop = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(71)))));
-            this.LaunchButton.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold);
-            this.LaunchButton.ForeColor = System.Drawing.Color.White;
-            this.LaunchButton.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(71)))));
-            this.LaunchButton.HoverFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(71)))));
-            this.LaunchButton.HoverForeColor = System.Drawing.Color.White;
-            this.LaunchButton.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            this.LaunchButton.Location = new System.Drawing.Point(230, 175);
-            this.LaunchButton.MinimumSize = new System.Drawing.Size(144, 47);
-            this.LaunchButton.Name = "LaunchButton";
-            this.LaunchButton.NormalBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(71)))));
-            this.LaunchButton.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            this.LaunchButton.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(71)))));
-            this.LaunchButton.PressedForeColor = System.Drawing.Color.White;
-            this.LaunchButton.Radius = 10;
-            this.LaunchButton.Size = new System.Drawing.Size(340, 100);
-            this.LaunchButton.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            this.LaunchButton.TabIndex = 6;
-            this.LaunchButton.Text = "LAUNCH";
-            this.LaunchButton.Click += new System.EventHandler(this.LaunchButton_Click);
             // 
             // AboutPage
             // 
@@ -372,40 +345,6 @@
             this.LanguageTitleLabel.Text = "Language";
             this.LanguageTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // LanguageComboBox
-            // 
-            this.LanguageComboBox.BackColor = System.Drawing.Color.White;
-            this.LanguageComboBox.ColorA = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.LanguageComboBox.ColorB = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.LanguageComboBox.ColorC = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.LanguageComboBox.ColorD = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.LanguageComboBox.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.LanguageComboBox.ColorF = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.LanguageComboBox.ColorG = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.LanguageComboBox.ColorH = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.LanguageComboBox.ColorI = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.LanguageComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LanguageComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.LanguageComboBox.DropDownHeight = 100;
-            this.LanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.LanguageComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.LanguageComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.LanguageComboBox.FormattingEnabled = true;
-            this.LanguageComboBox.HoverSelectionColor = System.Drawing.Color.Empty;
-            this.LanguageComboBox.IntegralHeight = false;
-            this.LanguageComboBox.ItemHeight = 20;
-            this.LanguageComboBox.Items.AddRange(new object[] {
-            "English",
-            "Español",
-            "Indonesia",
-            "日本語"});
-            this.LanguageComboBox.Location = new System.Drawing.Point(19, 113);
-            this.LanguageComboBox.Name = "LanguageComboBox";
-            this.LanguageComboBox.Size = new System.Drawing.Size(132, 26);
-            this.LanguageComboBox.StartIndex = 0;
-            this.LanguageComboBox.TabIndex = 16;
-            this.LanguageComboBox.SelectedIndexChanged += new System.EventHandler(this.LanguageComboBox_SelectedIndexChanged);
-            // 
             // SettingsBackButton
             // 
             this.SettingsBackButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -448,26 +387,12 @@
             this.BackgroundModeTitleLabel.Text = "Background Mode";
             this.BackgroundModeTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // BackgroundModeSwitch
-            // 
-            this.BackgroundModeSwitch.AutoSize = true;
-            this.BackgroundModeSwitch.BaseColor = System.Drawing.Color.White;
-            this.BackgroundModeSwitch.BaseOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.BackgroundModeSwitch.BaseOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.BackgroundModeSwitch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BackgroundModeSwitch.Location = new System.Drawing.Point(19, 61);
-            this.BackgroundModeSwitch.Name = "BackgroundModeSwitch";
-            this.BackgroundModeSwitch.Size = new System.Drawing.Size(40, 20);
-            this.BackgroundModeSwitch.TabIndex = 12;
-            this.BackgroundModeSwitch.UseVisualStyleBackColor = true;
-            this.BackgroundModeSwitch.CheckedChanged += new System.EventHandler(this.BackgroundModeToggle_CheckedChanged);
-            // 
             // UpdatePage
             // 
             this.UpdatePage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.UpdatePage.Controls.Add(this.ChangelogLabel);
-            this.UpdatePage.Controls.Add(this.CancelUpdateButton);
             this.UpdatePage.Controls.Add(this.UpdateLabel);
+            this.UpdatePage.Controls.Add(this.CancelUpdateButton);
             this.UpdatePage.Controls.Add(this.UpdateButton);
             this.UpdatePage.Location = new System.Drawing.Point(4, 22);
             this.UpdatePage.Name = "UpdatePage";
@@ -489,6 +414,269 @@
             this.ChangelogLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.ChangelogLabel.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ChangelogLabel.Click += new System.EventHandler(this.ChangelogLabel_Click);
+            // 
+            // UpdateLabel
+            // 
+            this.UpdateLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.UpdateLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.UpdateLabel.Location = new System.Drawing.Point(180, 124);
+            this.UpdateLabel.Name = "UpdateLabel";
+            this.UpdateLabel.Size = new System.Drawing.Size(440, 93);
+            this.UpdateLabel.TabIndex = 11;
+            this.UpdateLabel.Text = "A new update is available for the Bedrock Cosmos Launcher!\r\n\r\nSelect \"Update\" to " +
+    "begin the installation.\r\n\r\n\r\n\r\n";
+            this.UpdateLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // DevPage
+            // 
+            this.DevPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.DevPage.Controls.Add(this.DetailedLoggingLabel);
+            this.DevPage.Controls.Add(this.DevBackButton);
+            this.DevPage.Controls.Add(this.DevConsole);
+            this.DevPage.Controls.Add(this.EnableLoggingLabel);
+            this.DevPage.Controls.Add(this.DownloadZipProgressLabel);
+            this.DevPage.Controls.Add(this.DetailedLoggingSwitch);
+            this.DevPage.Controls.Add(this.FixProxyHangButton);
+            this.DevPage.Controls.Add(this.ResetNewsButton);
+            this.DevPage.Controls.Add(this.DisableDevMenuButton);
+            this.DevPage.Controls.Add(this.ClearLogsButton);
+            this.DevPage.Controls.Add(this.EnableLoggingSwitch);
+            this.DevPage.Controls.Add(this.DownloadZipButton);
+            this.DevPage.Controls.Add(this.ExportLogsButton);
+            this.DevPage.Location = new System.Drawing.Point(4, 22);
+            this.DevPage.Name = "DevPage";
+            this.DevPage.Size = new System.Drawing.Size(806, 440);
+            this.DevPage.TabIndex = 2;
+            this.DevPage.Text = "Dev";
+            // 
+            // DetailedLoggingLabel
+            // 
+            this.DetailedLoggingLabel.AutoSize = true;
+            this.DetailedLoggingLabel.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.DetailedLoggingLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.DetailedLoggingLabel.Location = new System.Drawing.Point(502, 394);
+            this.DetailedLoggingLabel.Name = "DetailedLoggingLabel";
+            this.DetailedLoggingLabel.Size = new System.Drawing.Size(221, 19);
+            this.DetailedLoggingLabel.TabIndex = 18;
+            this.DetailedLoggingLabel.Text = "Show Ignored (Tunneled) Requests";
+            // 
+            // DevBackButton
+            // 
+            this.DevBackButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.DevBackButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DevBackButton.BackgroundImage")));
+            this.DevBackButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.DevBackButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DevBackButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.DevBackButton.FlatAppearance.BorderSize = 0;
+            this.DevBackButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.DevBackButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.DevBackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DevBackButton.Location = new System.Drawing.Point(15, 391);
+            this.DevBackButton.Name = "DevBackButton";
+            this.DevBackButton.Size = new System.Drawing.Size(25, 25);
+            this.DevBackButton.TabIndex = 4;
+            this.DevBackButton.UseVisualStyleBackColor = true;
+            this.DevBackButton.Click += new System.EventHandler(this.ReturnToHomeScreen);
+            // 
+            // DevConsole
+            // 
+            this.DevConsole.BackColor = System.Drawing.Color.Black;
+            this.DevConsole.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DevConsole.DetectUrls = false;
+            this.DevConsole.ForeColor = System.Drawing.Color.White;
+            this.DevConsole.Location = new System.Drawing.Point(290, 41);
+            this.DevConsole.Name = "DevConsole";
+            this.DevConsole.ReadOnly = true;
+            this.DevConsole.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.DevConsole.Size = new System.Drawing.Size(499, 340);
+            this.DevConsole.TabIndex = 13;
+            this.DevConsole.Text = "";
+            // 
+            // EnableLoggingLabel
+            // 
+            this.EnableLoggingLabel.AutoSize = true;
+            this.EnableLoggingLabel.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.EnableLoggingLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.EnableLoggingLabel.Location = new System.Drawing.Point(306, 394);
+            this.EnableLoggingLabel.Name = "EnableLoggingLabel";
+            this.EnableLoggingLabel.Size = new System.Drawing.Size(103, 19);
+            this.EnableLoggingLabel.TabIndex = 11;
+            this.EnableLoggingLabel.Text = "Enable Logging";
+            // 
+            // DownloadZipProgressLabel
+            // 
+            this.DownloadZipProgressLabel.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.DownloadZipProgressLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.DownloadZipProgressLabel.Location = new System.Drawing.Point(162, 41);
+            this.DownloadZipProgressLabel.Name = "DownloadZipProgressLabel";
+            this.DownloadZipProgressLabel.Size = new System.Drawing.Size(121, 46);
+            this.DownloadZipProgressLabel.TabIndex = 4;
+            this.DownloadZipProgressLabel.Text = "Downloading...";
+            this.DownloadZipProgressLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DownloadZipProgressLabel.Visible = false;
+            // 
+            // TopPanel
+            // 
+            this.TopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.TopPanel.Controls.Add(this.AppIcon);
+            this.TopPanel.Controls.Add(this.TopLabel);
+            this.TopPanel.Controls.Add(this.MinimizeButton);
+            this.TopPanel.Controls.Add(this.CloseButton);
+            this.TopPanel.Location = new System.Drawing.Point(-1, 0);
+            this.TopPanel.Name = "TopPanel";
+            this.TopPanel.Size = new System.Drawing.Size(803, 46);
+            this.TopPanel.TabIndex = 6;
+            this.TopPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
+            this.TopPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseMove);
+            this.TopPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseUp);
+            // 
+            // AppIcon
+            // 
+            this.AppIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AppIcon.BackgroundImage")));
+            this.AppIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.AppIcon.Location = new System.Drawing.Point(8, 7);
+            this.AppIcon.Name = "AppIcon";
+            this.AppIcon.Size = new System.Drawing.Size(32, 32);
+            this.AppIcon.TabIndex = 3;
+            this.AppIcon.TabStop = false;
+            this.AppIcon.Click += new System.EventHandler(this.AppIcon_Click);
+            this.AppIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
+            this.AppIcon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseMove);
+            this.AppIcon.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseUp);
+            // 
+            // TopLabel
+            // 
+            this.TopLabel.AutoSize = true;
+            this.TopLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TopLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.TopLabel.Location = new System.Drawing.Point(46, 12);
+            this.TopLabel.Name = "TopLabel";
+            this.TopLabel.Size = new System.Drawing.Size(126, 21);
+            this.TopLabel.TabIndex = 2;
+            this.TopLabel.Text = "Bedrock Cosmos";
+            this.TopLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
+            this.TopLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseMove);
+            this.TopLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseUp);
+            // 
+            // MinimizeButton
+            // 
+            this.MinimizeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MinimizeButton.BackgroundImage")));
+            this.MinimizeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.MinimizeButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.MinimizeButton.FlatAppearance.BorderSize = 0;
+            this.MinimizeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.MinimizeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.MinimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MinimizeButton.Location = new System.Drawing.Point(732, 10);
+            this.MinimizeButton.Name = "MinimizeButton";
+            this.MinimizeButton.Size = new System.Drawing.Size(25, 25);
+            this.MinimizeButton.TabIndex = 1;
+            this.MinimizeButton.UseVisualStyleBackColor = true;
+            this.MinimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
+            // 
+            // CloseButton
+            // 
+            this.CloseButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CloseButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CloseButton.BackgroundImage")));
+            this.CloseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.CloseButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.CloseButton.FlatAppearance.BorderSize = 0;
+            this.CloseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.CloseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseButton.Location = new System.Drawing.Point(767, 10);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(25, 25);
+            this.CloseButton.TabIndex = 0;
+            this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+            // 
+            // TrayIcon
+            // 
+            this.TrayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("TrayIcon.Icon")));
+            this.TrayIcon.Text = "Bedrock Cosmos";
+            this.TrayIcon.Click += new System.EventHandler(this.TrayIcon_Click);
+            // 
+            // BackgroundModeTimer
+            // 
+            this.BackgroundModeTimer.Interval = 2500;
+            this.BackgroundModeTimer.Tick += new System.EventHandler(this.BackgroundModeTimer_Tick);
+            // 
+            // LaunchButton
+            // 
+            this.LaunchButton.BackColor = System.Drawing.Color.Transparent;
+            this.LaunchButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LaunchButton.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.LaunchButton.FilledBackColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(47)))));
+            this.LaunchButton.FilledBackColorTop = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(71)))));
+            this.LaunchButton.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold);
+            this.LaunchButton.ForeColor = System.Drawing.Color.White;
+            this.LaunchButton.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(71)))));
+            this.LaunchButton.HoverFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(71)))));
+            this.LaunchButton.HoverForeColor = System.Drawing.Color.White;
+            this.LaunchButton.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            this.LaunchButton.Location = new System.Drawing.Point(230, 175);
+            this.LaunchButton.MinimumSize = new System.Drawing.Size(144, 47);
+            this.LaunchButton.Name = "LaunchButton";
+            this.LaunchButton.NormalBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(71)))));
+            this.LaunchButton.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            this.LaunchButton.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(188)))), ((int)(((byte)(71)))));
+            this.LaunchButton.PressedForeColor = System.Drawing.Color.White;
+            this.LaunchButton.Radius = 10;
+            this.LaunchButton.Size = new System.Drawing.Size(340, 100);
+            this.LaunchButton.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            this.LaunchButton.TabIndex = 6;
+            this.LaunchButton.Text = "LAUNCH";
+            this.LaunchButton.Click += new System.EventHandler(this.LaunchButton_Click);
+            // 
+            // LanguageComboBox
+            // 
+            this.LanguageComboBox.BackColor = System.Drawing.Color.White;
+            this.LanguageComboBox.ColorA = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.LanguageComboBox.ColorB = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.LanguageComboBox.ColorC = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.LanguageComboBox.ColorD = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.LanguageComboBox.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.LanguageComboBox.ColorF = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.LanguageComboBox.ColorG = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.LanguageComboBox.ColorH = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.LanguageComboBox.ColorI = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.LanguageComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LanguageComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.LanguageComboBox.DropDownHeight = 100;
+            this.LanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.LanguageComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.LanguageComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.LanguageComboBox.FormattingEnabled = true;
+            this.LanguageComboBox.HoverSelectionColor = System.Drawing.Color.Empty;
+            this.LanguageComboBox.IntegralHeight = false;
+            this.LanguageComboBox.ItemHeight = 20;
+            this.LanguageComboBox.Items.AddRange(new object[] {
+            "English",
+            "Español",
+            "Indonesia",
+            "日本語"});
+            this.LanguageComboBox.Location = new System.Drawing.Point(19, 113);
+            this.LanguageComboBox.Name = "LanguageComboBox";
+            this.LanguageComboBox.Size = new System.Drawing.Size(132, 26);
+            this.LanguageComboBox.StartIndex = 0;
+            this.LanguageComboBox.TabIndex = 16;
+            this.LanguageComboBox.SelectedIndexChanged += new System.EventHandler(this.LanguageComboBox_SelectedIndexChanged);
+            // 
+            // BackgroundModeSwitch
+            // 
+            this.BackgroundModeSwitch.AutoSize = true;
+            this.BackgroundModeSwitch.BaseColor = System.Drawing.Color.White;
+            this.BackgroundModeSwitch.BaseOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.BackgroundModeSwitch.BaseOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.BackgroundModeSwitch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BackgroundModeSwitch.Location = new System.Drawing.Point(19, 61);
+            this.BackgroundModeSwitch.Name = "BackgroundModeSwitch";
+            this.BackgroundModeSwitch.Size = new System.Drawing.Size(40, 20);
+            this.BackgroundModeSwitch.TabIndex = 12;
+            this.BackgroundModeSwitch.UseVisualStyleBackColor = true;
+            this.BackgroundModeSwitch.CheckedChanged += new System.EventHandler(this.BackgroundModeToggle_CheckedChanged);
             // 
             // CancelUpdateButton
             // 
@@ -516,18 +704,6 @@
             this.CancelUpdateButton.Text = "Cancel";
             this.CancelUpdateButton.Click += new System.EventHandler(this.CancelUpdateButton_Click);
             // 
-            // UpdateLabel
-            // 
-            this.UpdateLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.UpdateLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.UpdateLabel.Location = new System.Drawing.Point(180, 124);
-            this.UpdateLabel.Name = "UpdateLabel";
-            this.UpdateLabel.Size = new System.Drawing.Size(440, 93);
-            this.UpdateLabel.TabIndex = 11;
-            this.UpdateLabel.Text = "A new update is available for the Bedrock Cosmos Launcher!\r\n\r\nSelect \"Update\" to " +
-    "begin the installation.\r\n\r\n\r\n\r\n";
-            this.UpdateLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // UpdateButton
             // 
             this.UpdateButton.BackColor = System.Drawing.Color.Transparent;
@@ -553,39 +729,6 @@
             this.UpdateButton.TabIndex = 10;
             this.UpdateButton.Text = "Update";
             this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
-            // 
-            // DevPage
-            // 
-            this.DevPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DevPage.Controls.Add(this.DetailedLoggingLabel);
-            this.DevPage.Controls.Add(this.DetailedLoggingSwitch);
-            this.DevPage.Controls.Add(this.FixProxyHangButton);
-            this.DevPage.Controls.Add(this.ResetNewsButton);
-            this.DevPage.Controls.Add(this.DevBackButton);
-            this.DevPage.Controls.Add(this.DevConsole);
-            this.DevPage.Controls.Add(this.EnableLoggingLabel);
-            this.DevPage.Controls.Add(this.DownloadZipProgressLabel);
-            this.DevPage.Controls.Add(this.DisableDevMenuButton);
-            this.DevPage.Controls.Add(this.ClearLogsButton);
-            this.DevPage.Controls.Add(this.EnableLoggingSwitch);
-            this.DevPage.Controls.Add(this.DownloadZipButton);
-            this.DevPage.Controls.Add(this.ExportLogsButton);
-            this.DevPage.Location = new System.Drawing.Point(4, 22);
-            this.DevPage.Name = "DevPage";
-            this.DevPage.Size = new System.Drawing.Size(806, 440);
-            this.DevPage.TabIndex = 2;
-            this.DevPage.Text = "Dev";
-            // 
-            // DetailedLoggingLabel
-            // 
-            this.DetailedLoggingLabel.AutoSize = true;
-            this.DetailedLoggingLabel.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.DetailedLoggingLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.DetailedLoggingLabel.Location = new System.Drawing.Point(502, 394);
-            this.DetailedLoggingLabel.Name = "DetailedLoggingLabel";
-            this.DetailedLoggingLabel.Size = new System.Drawing.Size(221, 19);
-            this.DetailedLoggingLabel.TabIndex = 18;
-            this.DetailedLoggingLabel.Text = "Show Ignored (Tunneled) Requests";
             // 
             // DetailedLoggingSwitch
             // 
@@ -652,61 +795,6 @@
             this.ResetNewsButton.TabIndex = 15;
             this.ResetNewsButton.Text = "Reset News";
             this.ResetNewsButton.Click += new System.EventHandler(this.ResetNewsButton_Click);
-            // 
-            // DevBackButton
-            // 
-            this.DevBackButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.DevBackButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DevBackButton.BackgroundImage")));
-            this.DevBackButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.DevBackButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DevBackButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DevBackButton.FlatAppearance.BorderSize = 0;
-            this.DevBackButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DevBackButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DevBackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DevBackButton.Location = new System.Drawing.Point(15, 391);
-            this.DevBackButton.Name = "DevBackButton";
-            this.DevBackButton.Size = new System.Drawing.Size(25, 25);
-            this.DevBackButton.TabIndex = 4;
-            this.DevBackButton.UseVisualStyleBackColor = true;
-            this.DevBackButton.Click += new System.EventHandler(this.ReturnToHomeScreen);
-            // 
-            // DevConsole
-            // 
-            this.DevConsole.BackColor = System.Drawing.Color.Black;
-            this.DevConsole.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DevConsole.DetectUrls = false;
-            this.DevConsole.ForeColor = System.Drawing.Color.White;
-            this.DevConsole.Location = new System.Drawing.Point(290, 41);
-            this.DevConsole.Name = "DevConsole";
-            this.DevConsole.ReadOnly = true;
-            this.DevConsole.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.DevConsole.Size = new System.Drawing.Size(499, 340);
-            this.DevConsole.TabIndex = 13;
-            this.DevConsole.Text = "";
-            // 
-            // EnableLoggingLabel
-            // 
-            this.EnableLoggingLabel.AutoSize = true;
-            this.EnableLoggingLabel.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.EnableLoggingLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.EnableLoggingLabel.Location = new System.Drawing.Point(306, 394);
-            this.EnableLoggingLabel.Name = "EnableLoggingLabel";
-            this.EnableLoggingLabel.Size = new System.Drawing.Size(103, 19);
-            this.EnableLoggingLabel.TabIndex = 11;
-            this.EnableLoggingLabel.Text = "Enable Logging";
-            // 
-            // DownloadZipProgressLabel
-            // 
-            this.DownloadZipProgressLabel.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.DownloadZipProgressLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.DownloadZipProgressLabel.Location = new System.Drawing.Point(162, 41);
-            this.DownloadZipProgressLabel.Name = "DownloadZipProgressLabel";
-            this.DownloadZipProgressLabel.Size = new System.Drawing.Size(121, 46);
-            this.DownloadZipProgressLabel.TabIndex = 4;
-            this.DownloadZipProgressLabel.Text = "Downloading...";
-            this.DownloadZipProgressLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DownloadZipProgressLabel.Visible = false;
             // 
             // DisableDevMenuButton
             // 
@@ -825,94 +913,6 @@
             this.ExportLogsButton.TabIndex = 8;
             this.ExportLogsButton.Text = "Export Logs";
             this.ExportLogsButton.Click += new System.EventHandler(this.ExportLogsButton_Click);
-            // 
-            // TopPanel
-            // 
-            this.TopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.TopPanel.Controls.Add(this.AppIcon);
-            this.TopPanel.Controls.Add(this.TopLabel);
-            this.TopPanel.Controls.Add(this.MinimizeButton);
-            this.TopPanel.Controls.Add(this.CloseButton);
-            this.TopPanel.Location = new System.Drawing.Point(-1, 0);
-            this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(803, 46);
-            this.TopPanel.TabIndex = 6;
-            this.TopPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
-            this.TopPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseMove);
-            this.TopPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseUp);
-            // 
-            // AppIcon
-            // 
-            this.AppIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AppIcon.BackgroundImage")));
-            this.AppIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.AppIcon.Location = new System.Drawing.Point(8, 7);
-            this.AppIcon.Name = "AppIcon";
-            this.AppIcon.Size = new System.Drawing.Size(32, 32);
-            this.AppIcon.TabIndex = 3;
-            this.AppIcon.TabStop = false;
-            this.AppIcon.Click += new System.EventHandler(this.AppIcon_Click);
-            this.AppIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
-            this.AppIcon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseMove);
-            this.AppIcon.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseUp);
-            // 
-            // TopLabel
-            // 
-            this.TopLabel.AutoSize = true;
-            this.TopLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TopLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.TopLabel.Location = new System.Drawing.Point(46, 12);
-            this.TopLabel.Name = "TopLabel";
-            this.TopLabel.Size = new System.Drawing.Size(126, 21);
-            this.TopLabel.TabIndex = 2;
-            this.TopLabel.Text = "Bedrock Cosmos";
-            this.TopLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
-            this.TopLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseMove);
-            this.TopLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseUp);
-            // 
-            // MinimizeButton
-            // 
-            this.MinimizeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.MinimizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MinimizeButton.BackgroundImage")));
-            this.MinimizeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.MinimizeButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.MinimizeButton.FlatAppearance.BorderSize = 0;
-            this.MinimizeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.MinimizeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.MinimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MinimizeButton.Location = new System.Drawing.Point(732, 10);
-            this.MinimizeButton.Name = "MinimizeButton";
-            this.MinimizeButton.Size = new System.Drawing.Size(25, 25);
-            this.MinimizeButton.TabIndex = 1;
-            this.MinimizeButton.UseVisualStyleBackColor = true;
-            this.MinimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
-            // 
-            // CloseButton
-            // 
-            this.CloseButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.CloseButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CloseButton.BackgroundImage")));
-            this.CloseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.CloseButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.CloseButton.FlatAppearance.BorderSize = 0;
-            this.CloseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.CloseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseButton.Location = new System.Drawing.Point(767, 10);
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(25, 25);
-            this.CloseButton.TabIndex = 0;
-            this.CloseButton.UseVisualStyleBackColor = true;
-            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
-            // 
-            // TrayIcon
-            // 
-            this.TrayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("TrayIcon.Icon")));
-            this.TrayIcon.Text = "Bedrock Cosmos";
-            this.TrayIcon.Click += new System.EventHandler(this.TrayIcon_Click);
-            // 
-            // BackgroundModeTimer
-            // 
-            this.BackgroundModeTimer.Interval = 2500;
-            this.BackgroundModeTimer.Tick += new System.EventHandler(this.BackgroundModeTimer_Tick);
             // 
             // MainForm
             // 

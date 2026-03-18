@@ -4,7 +4,9 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Windows.Forms;
 
-// Based off of Hope Switch from ReaLTaiizor
+// Built off of Hope Switch from ReaLTaiizor to work with .NET 4.7.2
+// https://github.com/Taiizor/ReaLTaiizor
+
 namespace BedrockCosmos.App.UI
 {
     public class Switch : System.Windows.Forms.CheckBox
